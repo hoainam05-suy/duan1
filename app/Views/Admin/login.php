@@ -53,9 +53,9 @@
                         </div>
                         <div class="error">
                            <?php
-                            if(isset($_SESSION['error'])){
-                                echo "<p>".$_SESSION['error']."</p>";
-                                unset($_SESSION['error']);
+                             if(isset($_SESSION['error'])){
+                                 echo "<p>".$_SESSION['error']."</p>";
+                                 unset($_SESSION['error']);
                             }
                            ?> 
                         </div>

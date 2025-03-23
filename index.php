@@ -5,7 +5,9 @@ include 'app/Database/Database.php';
 //Model
 include 'app/Models/Admin/HomeModel.php';
 //controller
+include 'app/Controllers/Admin/ControllerAdmin.php';
 include 'app/Controllers/Admin/HomeController.php';
+include 'app/Controllers/Admin/LoginController.php';
 
 
 const BASE_URL = "http://localhost/duan1/";

@@ -14,14 +14,19 @@ if($role =="user"){
         }
               // http://localhost/duan1/?role=admin&act=login
         case 'login':{
-            $homeController = new HomeController();
+            $homeController = new LoginController();
             $homeController->login();
             break;
         }
              // http://localhost/duan1/?role=admin&act=post-login
         case 'post-login':{
-            $homeController = new HomeController();
+            $homeController = new LoginController();
             $homeController->postlogin();
+            break;
+        }
+        case 'logout':{
+            $homeController = new LoginController();
+            $homeController->logout();
             break;
         }
         case 'product':{
