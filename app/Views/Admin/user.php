@@ -7,6 +7,7 @@
 
 
 <!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:29 GMT -->
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -69,10 +70,10 @@
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="wg-box">
-                                        <?php if(isset($_SESSION['massage'])){
-                                            echo "<p>".$_SESSION['massage']."</p>";
-                                            unset($_SESSION['massage']);
-                                        } ?>
+                                    <?php if (isset($_SESSION['massage'])) {
+                                        echo "<p>" . $_SESSION['massage'] . "</p>";
+                                        unset($_SESSION['massage']);
+                                    } ?>
                                     <div class="title-box">
                                         Danh sach user
                                     </div>
@@ -104,7 +105,7 @@
                                         <ul class="table-title flex gap20 mb-14">
                                             <li>
                                                 <div class="body-title">STT</div>
-                                            </li>    
+                                            </li>
                                             <li>
                                                 <div class="body-title">Name</div>
                                             </li>
@@ -117,27 +118,27 @@
                                             <li>
                                                 <div class="body-title">Action</div>
                                             </li>
-                                           
+
                                         </ul>
                                         <ul class="flex flex-column">
-                                            <?php foreach($listUser as $key => $value):  ?>
+                                            <?php foreach ($listUser as $key => $value):  ?>
                                                 <li class="wg-product item-row gap20">
-                                                    <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $key + 1 ?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name ?></div>
                                                     <div class="body-text text-main-dark mt-4">
-                                                        <img src="<?= $value->image?>" alt="" srcset="" width="50px">
+                                                        <img src="<?= $value->image ?>" alt="" srcset="" width="50px">
                                                     </div>
                                                     <div class="body-text text-main-dark mt-4"><?= $value->email ?></div>
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
-                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
-                                                            <i class="icon-eye"></i>
-                                                        </a>
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=show-user&id=<?= $value->id ?>">
+                                                                <i class="icon-eye"></i>
+                                                            </a>
                                                         </div>
                                                         <div class="item edit">
-                                                           <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
-                                                            <i class="icon-edit-3"></i>
-                                                           </a>
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=update-user&id=<?= $value->id ?>">
+                                                                <i class="icon-edit-3"></i>
+                                                            </a>
                                                         </div>
                                                         <div class="item trash">
                                                             <a href="<?= BASE_URL ?>?role=admin&act=delete-user&id=<?= $value->id ?>">
@@ -171,7 +172,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                               
+
                             </div>
                             <!-- /main-content-wrap -->
                         </div>
@@ -218,4 +219,5 @@
 
 
 <!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:54 GMT -->
+
 </html>

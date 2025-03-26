@@ -68,7 +68,7 @@
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="wg-box">
-                                Dashboard
+                            Dashboard
                                 </div>
                             </div>
                             <!-- /main-content-wrap -->

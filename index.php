@@ -4,10 +4,12 @@ session_start();
 include 'app/Database/Database.php';
 //Model
 include 'app/Models/Admin/HomeModel.php';
+include 'app/Models/Admin/UserModel.php';
 //controller
 include 'app/Controllers/Admin/ControllerAdmin.php';
 include 'app/Controllers/Admin/HomeController.php';
 include 'app/Controllers/Admin/LoginController.php';
+include 'app/Controllers/Admin/UserController.php';
 
 
 const BASE_URL = "http://localhost/duan1/";

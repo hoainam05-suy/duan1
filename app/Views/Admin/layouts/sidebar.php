@@ -128,7 +128,7 @@
                                                         </a>
                                                         <ul class="sub-menu">
                                                             <li class="sub-menu-item">
-                                                                <a href="<?= BASE_URL ?>?role=admin&act=all-user" class="">
+                                                                <a href="<?= BASE_URL ?>?role=admin&act=all-user" class="" >
                                                                     <div class="text">All user</div>
                                                                 </a>
                                                             </li>

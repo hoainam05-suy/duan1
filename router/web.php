@@ -29,6 +29,11 @@ if($role =="user"){
             $homeController->logout();
             break;
         }
+        case 'all-user': {
+            $userController = new UserController();
+            $userController->getAllUser();
+            break;
+        }
         case 'product':{
     
         }

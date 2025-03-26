@@ -6,19 +6,13 @@ class HomeModel
     {
         $this->db = new Database();
     }
-    public function __getUsers()
-    {
-        $sql = "select * from users";
-        $query = $this->db->pdo->query($sql);
-        $result = $query->fetchAll();
-        return $result;
-    }
+  
 
     public function checkLogin()
     {
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $sql = "SELECT * FROM users WHERE email = :email";
+        $sql = "SELECT * FROM users WHERE email = :email and role = 1";
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
