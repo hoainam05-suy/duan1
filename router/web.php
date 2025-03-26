@@ -14,24 +14,49 @@ if($role =="user"){
         }
               // http://localhost/duan1/?role=admin&act=login
         case 'login':{
-            $homeController = new LoginController();
-            $homeController->login();
+            $loginController = new LoginController();
+            $loginController->login();
             break;
         }
              // http://localhost/duan1/?role=admin&act=post-login
         case 'post-login':{
-            $homeController = new LoginController();
-            $homeController->postlogin();
+            $loginController = new LoginController();
+            $loginController->postlogin();
             break;
         }
         case 'logout':{
-            $homeController = new LoginController();
-            $homeController->logout();
+            $loginController = new LoginController();
+            $loginController->logout();
             break;
         }
         case 'all-user': {
             $userController = new UserController();
             $userController->getAllUser();
+            break;
+        }
+        case 'add-user':{
+            $userController = new UserController();
+            $userController->addUser();
+            break;
+        }
+        case 'post-add-user':{
+            $userController = new UserController();
+            $userController->addPostUser();
+            break;
+        }
+        case 'update-user': {
+            $userController = new UserController();
+            $userController->updateUser();
+            break;
+        }
+        case 'update-post-user': {
+            $userController = new UserController();
+            $userController->updatePostUser();
+            break;
+        }
+        case 'delete-user': {
+            $userController = new UserController();
+            $userController->deleteUser();
             break;
         }
         case 'product':{

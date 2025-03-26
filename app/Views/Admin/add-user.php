@@ -105,10 +105,12 @@
                                                 <div class="body-title mb-10" for="name">Name</div>
                                                 <input class="flex-grow" type="text" id="name" placeholder="Name" name="name" tabindex="0" value="" >
                                             </fieldset>
+
                                             <fieldset class="email mb-24">
                                                 <div class="body-title mb-10" for="email">Email</div>
                                                 <input class="flex-grow" type="email" id="email" placeholder="Email" name="email" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
+
                                             <fieldset class="password mb-24">
                                                 <div class="body-title mb-10">Password</div>
                                                 <input class="password-input" type="password" id="password" placeholder="Password" name="password" tabindex="0" value="" aria-required="true" >
@@ -117,18 +119,22 @@
                                                     <i class="icon-eye-off hide"></i>
                                                 </span>
                                             </fieldset>
+
                                             <fieldset class="address mb-24">
                                                 <div for="address" class="body-title mb-10">Address</div>
                                                 <input class="flex-grow" type="text" id="address" placeholder="Address" name="address" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
+
                                             <fieldset class="phone mb-24">
                                                 <div for="phone" class="body-title mb-10">Phone</div>
                                                 <input class="flex-grow" type="text" id="phone" placeholder="Phone" name="phone" tabindex="0" value="" aria-required="true" >
                                             </fieldset>
+
                                             <fieldset class="image mb-24">
                                                 <div for="image" class="body-title mb-10">Anh</div>
                                                 <input class="flex-grow" type="file" id="image" name="image" tabindex="0" value="" aria-required="true" accept="image/*">
                                             </fieldset>
+                                            
                                             <fieldset class="role mb-24">
                                                 <div for="role" class="body-title mb-10">Role</div>
                                                 <select name="role" id="role" class="form-control">
