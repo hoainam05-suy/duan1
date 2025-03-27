@@ -55,6 +55,7 @@
         }
 
        
+
         public function updateUsertoDB($destPath) {
             // Lấy thông tin người dùng hiện tại từ DB
             $user = $this->getUserByID($_GET['id']);

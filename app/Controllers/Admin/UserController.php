@@ -140,6 +140,18 @@ class UserController{
             exit;
         }
     }
+    public function showUser() {
+        if(!isset($_GET['id']) || empty($_GET['id'])){
+            $_SESSION['message'] = "Vui long chon user can xoa";
+            header("location: " . BASE_URL . "?role=admin&act=all-user" );
+            exit;
+        }
+        $userModel = new UserModel();
+        $user = $userModel->getUserById();
+
+        include 'app/Views/Admin/show-user.php';
+    }
+    
     
     public function deleteUser() {
         if (!isset($_GET['id']) || empty($_GET['id'])) {

@@ -134,7 +134,7 @@
                                         <option data-thumbnail="assets/Admin/images/country/9.png">VIE</option>
                                     </select>
                                 </div> -->
-                                <div class="header-item button-dark-light">
+                                <!-- <div class="header-item button-dark-light">
                                     <i class="icon-moon"></i>
                                 </div>
                                 <div class="popup-wrap noti type-header">
@@ -366,7 +366,7 @@
                                             <li><a href="#" class="tf-button w-full">View all app</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="popup-wrap user type-header">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
