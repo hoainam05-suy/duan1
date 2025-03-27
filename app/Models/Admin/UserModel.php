@@ -54,60 +54,7 @@
             return false;
         }
 
-        // public function updateUsertoDB($destPath) {
-        //     // Lấy thông tin người dùng hiện tại từ DB
-        //     $user = $this->getUserByID();
-        //     if (!$user) {
-        //         return false;
-        //     }
-        //     $id = $_GET['id'];
-        //     // Giữ nguyên giá trị cũ nếu không có giá trị mới từ biểu mẫu
-        //     // $name = !empty($_POST['name']) ? $_POST['name'] : $user->name;
-        //     // $email = !empty($_POST['email']) ? $_POST['email'] : $user->email;
-        //     // $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_BCRYPT) : $user->password;
-        //     // $address = !empty($_POST['address']) ? $_POST['address'] : $user->address;
-        //     // $phone = !empty($_POST['phone']) ? $_POST['phone'] : $user->phone;
-        //     // $role = !empty($_POST['role']) ? $_POST['role'] : $user->role;
-        //     // $image = !empty($destPath) ? $destPath : $user->image; // Giữ ảnh cũ nếu không cập nhật ảnh mới
-        //     // $now = date('Y-m-d H:i:s');
-        //     $name = isset($_POST['name']) && $_POST['name'] !== '' ? $_POST['name'] : $user->name;
-        //     $email = isset($_POST['email']) && $_POST['email'] !== '' ? $_POST['email'] : $user->email;
-        //     $password = isset($_POST['password']) && $_POST['password'] !== '' ? password_hash($_POST['password'], PASSWORD_BCRYPT) : $user->password;
-        //     $address = isset($_POST['address']) && $_POST['address'] !== '' ? $_POST['address'] : $user->address;
-        //     $phone = isset($_POST['phone']) && $_POST['phone'] !== '' ? $_POST['phone'] : $user->phone;
-        //     $role = isset($_POST['role']) && $_POST['role'] !== '' ? $_POST['role'] : $user->role;
-        //     $image = $destPath ?: $user->image; // Sử dụng ảnh mới nếu có, ngược lại giữ ảnh cũ
-        //     $now = date('Y-m-d H:i:s');
-        
-            
-        //     // Câu truy vấn cập nhật
-        //     $sql = "
-        //         UPDATE users SET 
-        //             name = :name,
-        //             email = :email,
-        //             password = :password,
-        //             address = :address,
-        //             phone = :phone,
-        //             image = :image,
-        //             updated_at = :updated_at,
-        //             role = :role 
-        //         WHERE id = :id
-        //     ";
-        
-        //     $stmt = $this->db->pdo->prepare($sql);
-        //     $stmt->bindParam(':name', $name);
-        //     $stmt->bindParam(':email', $email);
-        //     $stmt->bindParam(':password', $password);
-        //     $stmt->bindParam(':address', $address);
-        //     $stmt->bindParam(':phone', $phone);
-        //     $stmt->bindParam(':image', $image);
-        //     $stmt->bindParam(':updated_at', $now);
-        //     $stmt->bindParam(':role', $role);
-        //     $stmt->bindParam(':id', $id);
-        
-        //     return $stmt->execute();
-        // }
-
+       
         public function updateUsertoDB($destPath) {
             // Lấy thông tin người dùng hiện tại từ DB
             $user = $this->getUserByID($_GET['id']);
