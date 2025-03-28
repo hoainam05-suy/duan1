@@ -93,10 +93,7 @@
                                             echo "<p>".$_SESSION['massage']."</p>";
                                             unset($_SESSION['massage']);
                                         } ?>
-                                    <div class="title-box">
-                                        <i class="icon-coffee"></i>
-                                        <div class="body-text">Tip search by Product ID: Each product is provided with a unique ID, which you can rely on to find the exact product you need.</div>
-                                    </div>
+                                  
                                     <div class="flex items-center justify-between gap10 flex-wrap">
                                         <div class="wg-filter flex-grow">
                                             <div class="show">
@@ -153,7 +150,7 @@
                                                     <div class="body-text text-main-dark mt-4">
                                                         <img src="<?= $value->image_main?>" alt="" srcset="" width="50px">
                                                     </div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->categoryName ?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name ?></div>
                                                     <div class="body-text text-main-dark mt-4">
                                                         <?= isset($value->price) ? number_format($value->price, 0, ',', '.') . ' VNĐ' : 'Không có giá' ?>
                                                     

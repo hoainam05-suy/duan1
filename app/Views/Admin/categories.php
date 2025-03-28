@@ -99,7 +99,7 @@
                                         </div>
                                         <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-category"><i class="icon-plus"></i>Add category</a>
                                     </div>
-                                    <div class="wg-table table-product-list">
+                                    <div class="wg-table table-category-list">
                                         <ul class="table-title flex gap20 mb-14">
                                             <li>
                                                 <div class="body-title">STT</div>
@@ -114,10 +114,12 @@
                                            
                                         </ul>
                                         <ul class="flex flex-column">
-                                            <?php foreach($listCategori as $key => $value):  ?>
+
+
+                                            <?php foreach($listCategory as $key => $value):  ?>
                                                 <li class="wg-product item-row gap20">
                                                     <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
+                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>                                                    
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
                                                         <a href="<?= BASE_URL ?>?role=admin&act=show-category&id=<?= $value->id ?>">
@@ -130,17 +132,20 @@
                                                            </a>
                                                         </div>
                                                         <div class="item trash">
-                                                            <a onclick="return confirm('Ban chac co muon xoa khong')"
-                                                             href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
+                                                            <a href="<?= BASE_URL ?>?role=admin&act=delete-category&id=<?= $value->id ?>">
                                                                 <i class="icon-trash-2"></i>
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </li>
                                             <?php endforeach; ?>
+
                                         </ul>
                                     </div>
+
+                                    
                                     <div class="divider"></div>
+                                    
                                     <div class="flex items-center justify-between flex-wrap gap10">
                                         <div class="text-tiny">Showing 10 entries</div>
                                         <ul class="wg-pagination">

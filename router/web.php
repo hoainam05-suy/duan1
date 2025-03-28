@@ -64,9 +64,77 @@ if($role =="user"){
             $userController->deleteUser();
             break;
         }
-        case 'product':{
-    
+
+
+
+/* tú add product  
+tạo ProductController.php
+*/
+        case 'all-product': {
+            $productController = new ProductController();
+            $productController->getAllProduct();
+            break;
         }
+        case 'add-product':{
+            $productController = new ProductController();
+            $productController->addProduct();
+            break;
+        }
+        case 'post-add-product':{
+            $productController = new ProductController();
+            $productController->addPostProduct();
+            break;
+        }
+        case 'update-product': {
+            $productController = new ProductController();
+            $productController->updateProduct();
+            break;
+        }
+        case 'update-post-product': {
+            $productController = new ProductController();
+            $productController->updatePostProduct();
+            break;
+        }
+        case 'delete-product': {
+            $productController = new ProductController();
+            $productController->deleteProduct();
+            break;
+        }
+
+// end Tu add product
+        case 'all-category': {
+            $categoryController = new CategoryController();
+            $categoryController->getAllCategory();
+            break;
+        }
+        case 'add-category':{
+            $categoryController = new CategoryController();
+            $categoryController->addCategory();
+            break;
+        }
+        case 'post-add-category':{
+            $categoryController = new CategoryController();
+            $categoryController->addPostCategory();
+            break;
+        }
+        case 'update-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updateCategory();
+            break;
+        }
+        case 'update-post-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updatePostCategory();
+            break;
+        }
+        case 'delete-category': {
+            $categoryController = new CategoryController();
+            $categoryController->deleteCategory();
+            break;
+        }
+
+
+
         default:{
             $homeController = new HomeController();
             $homeController->dashboard();

@@ -107,13 +107,23 @@
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
-                                                <div class="body-title mb-10" for="category">Danh muc</div>
-                                                <select name="category" id="category">
-                                                    <?php foreach ($listCategory as $key => $value): ?>
-                                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                <div class="body-title mb-10" for="category">Danh mục</div>
+                                                <!-- <select name="category_id" id="category">
+                                                    <?php if (!empty($listCategory)): ?>
+                                                        <?php foreach ($listCategory as $value): ?>
+                                                            <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <option value="">Không có danh mục nào</option>
+                                                    <?php endif; ?>
+                                                </select> -->
+                                                <select name="category" id="category" class="form-control">
+                                                    <?php foreach ($listCategory as $category) : ?>
+                                                        <option value="<?= $category->id ?>"><?= $category->name ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                            </fieldset>
+
+                                            </fieldset> 
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="price">Price</div>
