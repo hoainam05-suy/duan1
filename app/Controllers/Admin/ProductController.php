@@ -12,7 +12,7 @@ class ProductController {
         $listCategory = $productModel->getCategories(); 
     
         
-        include_once "./app/Views/Admin/add-products.php";
+        include_once "./app/Views/Admin/add-product.php";
     }
     
 
@@ -39,10 +39,10 @@ class ProductController {
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $destPath = "";
-            if (!empty($_FILES['image']['name'])) {
-                $fileTmPath = $_FILES['image']['tmp_name'];
+            if (!empty($_FILES['image_mainmain']['name'])) {
+                $fileTmPath = $_FILES['image_mainmain']['tmp_name'];
                 $fileType = mime_content_type($fileTmPath);
-                $fileName = basename($_FILES['image']['name']);
+                $fileName = basename($_FILES['image_main']['name']);
                 $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
                 $newFileName = uniqid() . '.' . $fileExtention;
@@ -86,7 +86,7 @@ class ProductController {
             header("location: " . BASE_URL . "?role=admin&act=all-product" );
             exit;
         }
-        include 'app/Views/Admin/update-products.php';
+        include 'app/Views/Admin/update-product.php';
     }
 
     public function updatePostProduct() {
@@ -109,11 +109,11 @@ class ProductController {
             // Xử lý ảnh
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            $destPath = $product->image; // Giữ ảnh cũ nếu không có ảnh mới
-            if (!empty($_FILES['image']['name'])) {
-                $fileTmPath = $_FILES['image']['tmp_name'];
+            $destPath = $product->image_main; // Giữ ảnh cũ nếu không có ảnh mới
+            if (!empty($_FILES['image_main']['name'])) {
+                $fileTmPath = $_FILES['image_main']['tmp_name'];
                 $fileType = mime_content_type($fileTmPath);
-                $fileName = basename($_FILES['image']['name']);
+                $fileName = basename($_FILES['image_main']['name']);
                 $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
     
                 $newFileName = uniqid() . '.' . $fileExtention;
@@ -122,11 +122,11 @@ class ProductController {
                     $destPath = $uploadDir . $newFileName;
                     if(move_uploaded_file($fileTmPath, $destPath)) {
                         // Xóa ảnh cũ nếu upload thành công
-                        if($product->image && file_exists($product->image)) {
-                            unlink($product->image);
+                        if($product->image_main && file_exists($product->image_main)) {
+                            unlink($product->image_main);
                         }
                     } else {
-                        $destPath = $product->image; // Giữ lại ảnh cũ nếu upload thất bại
+                        $destPath = $product->image_main; // Giữ lại ảnh cũ nếu upload thất bại
                     }
                 }
             }
@@ -162,8 +162,8 @@ class ProductController {
         }
     
         // Xóa ảnh nếu tồn tại
-        if (!empty($product->image) && file_exists($product->image)) {
-            unlink($product->image);
+        if (!empty($product->image_main) && file_exists($product->image_main)) {
+            unlink($product->image_main);
         }
     
         $isDeleted = $productModel->deleteProductById($id);

@@ -21,12 +21,12 @@
             $price = $_POST['price'];
             $price_sale = $_POST['price_sale'];
             $stock = $_POST['stock'];
-            $image = "$destPath";
+            $image_main = "$destPath";
             $now = date('Y-m-d H:i:s');
 
 
             $sql = "INSERT INTO products (name, category_id, description, price, price_sale, stock, image_main, created_at, updated_at) 
-            VALUES (:name, :category_id, :description, :price, :price_sale, :stock, :image ,:created_at, :updated_at)";
+            VALUES (:name, :category_id, :description, :price, :price_sale, :stock, :image_main ,:created_at, :updated_at)";
 
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
@@ -35,7 +35,7 @@
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':price_sale', $price_sale);
             $stmt->bindParam(':stock', $stock);
-            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':image_main', $image_main);
             $stmt->bindParam(':created_at', $now);
             $stmt->bindParam(':updated_at', $now);
 
@@ -70,7 +70,7 @@
             $price = isset($_POST['price']) && $_POST['price'] !== '' ? $_POST['price'] : $product->price;
             $price_sale = isset($_POST['price_sale']) && $_POST['price_sale'] !== '' ? $_POST['price_sale'] : $product->price_sale;
             $stock = isset($_POST['stock']) && $_POST['stock'] !== '' ? $_POST['stock'] : $product->stock;
-            $image = $destPath ?: $product->image; // Sử dụng ảnh mới nếu có, ngược lại giữ ảnh cũ
+            $image_main = $destPath ?: $product->image_main; // Sử dụng ảnh mới nếu có, ngược lại giữ ảnh cũ
             $now = date('Y-m-d H:i:s');
            
             // Câu truy vấn cập nhật
@@ -82,8 +82,8 @@
                     price = :price,
                     price_sale = :price_sale,
                     stock = :stock,
-                    image = :image,
-                    updated_at = :updated_at,
+                    image_main = :image_main,
+                    updated_at = :updated_at
                 WHERE id = :id
             ";
         
@@ -94,7 +94,7 @@
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':price_sale', $price_sale);
             $stmt->bindParam(':stock', $stock);
-            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':image_main', $image);
             $stmt->bindParam(':updated_at', $now);
             $stmt->bindParam(':id', $id);
             return $stmt->execute();
