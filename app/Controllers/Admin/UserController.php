@@ -29,7 +29,7 @@ class UserController{
     public function addPostUser() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if(!$this->checkValidate()) {
-                header("location: " . BASE_URL > "?role=admin&act=add-user");
+                header("location: " . BASE_URL . "?role=admin&act=add-user");
                 exit;
             }
             // them anh

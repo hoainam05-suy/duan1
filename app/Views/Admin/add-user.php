@@ -90,16 +90,16 @@
                                 <!-- add-new-user -->
                                
                                 <form action="<?= BASE_URL ?>?role=admin&act=post-add-user" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
-                                    <div class="wg-box">
-                                    <?php if(isset($_SESSION['massage'])){
-                                            echo "<p>".$_SESSION['massage']."</p>";
-                                            unset($_SESSION['massage']);
+                                    <?php if(isset($_SESSION['message'])){
+                                            echo "<p>".$_SESSION['message']."</p>";
+                                            unset($_SESSION['message']);
                                         }
-                                        // if (isset($_SESSION['error'])) {
-                                        //     echo "<p>" . $_SESSION['error'] . "</p>";
-                                        //     unset($_SESSION['error']);
-                                        // }
+                                        if (isset($_SESSION['error'])) {
+                                            echo "<p>" . $_SESSION['error'] . "</p>";
+                                            unset($_SESSION['error']);
+                                        }
                                          ?>
+                                    <div class="wg-box">
                                         <div class="right flex-grow">
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="name">Name</div>
