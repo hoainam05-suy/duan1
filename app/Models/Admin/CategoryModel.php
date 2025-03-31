@@ -7,7 +7,7 @@
         }
 
         public function getAllData() {
-            $sql = "select * from categories";
+            $sql = "select * from categores";
             $query = $this->db->pdo->query($sql);
             $result = $query->fetchAll();
             return $result;
@@ -17,8 +17,15 @@
         public function addCategorytoDB() {
             $name = $_POST['name'];
             $now = date('Y-m-d H:i:s');
+<<<<<<< HEAD
             $sql = "INSERT INTO categories (name, created_at, updated_at) 
             VALUES (:name, :created_at, :updated_at)";
+=======
+
+
+            $sql = "INSERT INTO categores (name, category_id, created_at, updated_at) 
+            VALUES (:name, :category_id, :created_at, :updated_at)";
+>>>>>>> 61c5508 (giao dien user)
 
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
@@ -29,7 +36,7 @@
 
         public function getCategoryById() {
             $id = $_GET['id'];
-            $sql = "SELECT * FROM categories WHERE id = :id";
+            $sql = "SELECT * FROM categores WHERE id = :id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
         
@@ -54,7 +61,7 @@
            
             // Câu truy vấn cập nhật
             $sql = "
-                UPDATE categories SET 
+                UPDATE categores SET 
                     name = :name,
                     id = :id,
                     updated_at = :updated_at
@@ -69,14 +76,14 @@
         }
         
         public function deleteCategoryById($id) {
-            $sql = "DELETE FROM categories WHERE id = :id";
+            $sql = "DELETE FROM categores WHERE id = :id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
         
             return $stmt->execute();
         }
 
-        public function getCategories() {
+        public function getcategores() {
             try {
                 $sql = "SELECT id, name FROM categories";
                 $stmt = $this->db->pdo->prepare($sql);
