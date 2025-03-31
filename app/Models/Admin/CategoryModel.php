@@ -17,15 +17,12 @@
         public function addCategorytoDB() {
             $name = $_POST['name'];
             $now = date('Y-m-d H:i:s');
-<<<<<<< HEAD
-            $sql = "INSERT INTO categories (name, created_at, updated_at) 
-            VALUES (:name, :created_at, :updated_at)";
-=======
+
 
 
             $sql = "INSERT INTO categores (name, category_id, created_at, updated_at) 
             VALUES (:name, :category_id, :created_at, :updated_at)";
->>>>>>> 61c5508 (giao dien user)
+
 
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
