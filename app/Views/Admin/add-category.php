@@ -88,7 +88,7 @@
                                     </ul>
                                 </div> -->
                                 <!-- add-new-user -->
-                                <form action="<?= BASE_URL ?>?role=admin&act=add-post-category" class="form-add-new-user form-style-2" method="post" >
+                                <form action="<?= BASE_URL ?>?role=admin&act=post-add-category" class="form-add-new-user form-style-2" method="post" >
                                     <div class="wg-box">
                                         <?php if(isset($_SESSION['massage'])){
                                             echo "<p>".$_SESSION['massage']."</p>";

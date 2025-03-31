@@ -102,7 +102,7 @@
                                                 <select name="category" id="category">
                                                     <?php foreach ($listCategory as $key => $value): ?>
                                                         <option value="<?= $value->id ?>"
-                                                            <?php 
+                                                        $sql              <?php 
                                                                 if($product->category_id == $value->id):?> selected
                                                         
                                                             <?php endif?>><?= $value->name ?></option>

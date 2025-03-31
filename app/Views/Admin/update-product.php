@@ -83,21 +83,21 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Update User</div>
+                                            <div class="text-tiny">Update Product</div>
                                         </li>
                                     </ul>
                                 </div>
                                 <!-- add-new-user -->
-                                <form action="<?= BASE_URL ?>?role=admin&act=update-post-product&id=<?= $_GET['id']?>" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
+                                <form action="<?= BASE_URL ?>?role=admin&act=update-post-product&id=<?= $_GET['id']?>" class="form-add-new-product form-style-2" method="post" enctype="multipart/form-data">
                                     <div class="wg-box">
                                         <?php if(isset($_SESSION['massage'])){
                                             echo "<p>".$_SESSION['massage']."</p>";
                                             unset($_SESSION['massage']);
                                         }
-                                        // if (isset($_SESSION['error'])) {
-                                        //     echo "<p>" . $_SESSION['error'] . "</p>";
-                                        //     unset($_SESSION['error']);
-                                        // }
+                                        if (isset($_SESSION['error'])) {
+                                            echo "<p>" . $_SESSION['error'] . "</p>";
+                                            unset($_SESSION['error']);
+                                        }
                                          ?>
                                         <div class="right flex-grow">
                                             <fieldset class="name mb-24">

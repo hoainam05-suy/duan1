@@ -14,21 +14,16 @@
         }
 
        
-        public function addCategorytoDB($destPath) {
+        public function addCategorytoDB() {
             $name = $_POST['name'];
-            $category_id =  $_POST['category_id'];
             $now = date('Y-m-d H:i:s');
-
-
-            $sql = "INSERT INTO categories (name, category_id, created_at, updated_at) 
-            VALUES (:name, :category_id, :created_at, :updated_at)";
+            $sql = "INSERT INTO categories (name, created_at, updated_at) 
+            VALUES (:name, :created_at, :updated_at)";
 
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':category_id', $category_id);
             $stmt->bindParam(':created_at', $now);
             $stmt->bindParam(':updated_at', $now);
-
             return $stmt->execute();
         }
 

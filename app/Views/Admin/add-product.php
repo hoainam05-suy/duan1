@@ -67,7 +67,7 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                <!-- <div class="flex items-center flex-wrap justify-between gap20 mb-30">
                                     <h3>Add New Product</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
@@ -86,19 +86,19 @@
                                             <div class="text-tiny">Add New Product</div>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <!-- add-new-user -->
                                  
-                                <form action="<?= BASE_URL ?>?role=admin&act=add-post-product" class="form-add-new-user form-style-2" method="post" enctype="multipart/form-data">
+                                <form action="<?= BASE_URL ?>?role=admin&act=post-add-product" class="form-add-new-product form-style-2" method="post" enctype="multipart/form-data">
                                     <div class="wg-box">
                                         <?php if(isset($_SESSION['massage'])){
                                             echo "<p>".$_SESSION['massage']."</p>";
                                             unset($_SESSION['massage']);
                                         }
-                                        // if (isset($_SESSION['error'])) {
-                                        //     echo "<p>" . $_SESSION['error'] . "</p>";
-                                        //     unset($_SESSION['error']);
-                                        // }
+                                        if (isset($_SESSION['error'])) {
+                                            echo "<p>" . $_SESSION['error'] . "</p>";
+                                            unset($_SESSION['error']);
+                                        }
                                          ?>
                                         <div class="right flex-grow">
                                             <fieldset class="name mb-24">
@@ -107,19 +107,11 @@
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
-                                                <div class="body-title mb-10" for="category">Danh mục</div>
-                                                <!-- <select name="category_id" id="category">
-                                                    <?php if (!empty($listCategory)): ?>
-                                                        <?php foreach ($listCategory as $value): ?>
-                                                            <option value="<?= $value->id ?>"><?= $value->name ?></option>
-                                                        <?php endforeach; ?>
-                                                    <?php else: ?>
-                                                        <option value="">Không có danh mục nào</option>
-                                                    <?php endif; ?>
-                                                </select> -->
-                                                <select name="category" id="category" class="form-control">
-                                                    <?php foreach ($listCategory as $category) : ?>
-                                                        <option value="<?= $category->id ?>"><?= $category->name ?></option>
+                                                <label class="body-title mb-10" for="category">Danh mục</label>
+                                                
+                                                <select name="category" id="category">
+                                                    <?php foreach ($listCategory as $key => $value) : ?>
+                                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
 
@@ -142,12 +134,7 @@
 
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="image_main">Image Main</div>
-                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*">
-                                            </fieldset>
-
-                                            <fieldset class="name mb-24">
-                                                <div class="body-title mb-10" for="description">Description</div>
-                                                <textarea id="description" placeholder="Description" name="description" class="flex-grow"></textarea>
+                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image/*">
                                             </fieldset>
                                             
                                             <fieldset class="name mb-24">

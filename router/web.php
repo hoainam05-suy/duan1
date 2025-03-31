@@ -80,6 +80,7 @@ tạo ProductController.php
             $productController->addProduct();
             break;
         }
+
         case 'post-add-product':{
             $productController = new ProductController();
             $productController->addPostProduct();

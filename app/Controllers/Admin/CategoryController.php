@@ -19,8 +19,14 @@ class CategoryController {
     public function checkValidate() {
         $name = $_POST['name'] ?? null;
         $category_id = $_POST['category_id'] ?? null;
+        $act = isset($_GET['act']) ? $_GET['act'] : "";
+// echo "act: " . $act . "<br>";
+// echo "name: " . $name . "<br>";
+// echo "category_id" . $category_id."<br>";
 
-        if($name != "" && $category_id != "" ) {
+        if($name != "" && $category_id != "" && $act = "post-update-category") {
+            return true;
+        } elseif($name != "" &&  $act = "post-add-category") {
             return true;
         } else {
             $_SESSION['error'] = "Bạn nhập thiếu thông tin";
@@ -36,7 +42,7 @@ class CategoryController {
             }         
 
             $categoryModel = new CategoryModel();
-            $message = $categoryModel->addCategorytoDB($destPath);
+            $message = $categoryModel->addCategorytoDB();
 
             if ($message) {
                 $_SESSION['message'] = "Them moi thanh cong";
@@ -50,6 +56,7 @@ class CategoryController {
         }
     }
 
+   
     public function updateCategory() {
         if(!isset($_GET['id'])){
             $_SESSION['message'] = "Vui long chon danh muc can sua";
