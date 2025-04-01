@@ -7,12 +7,15 @@
         }
 
         public function getAllData() {
-            $sql = "SELECT products.id, products.name, products.category_id, products.price, products.price_sale, products.stock, products.image_main, categories.name AS categoryName 
-                    FROM products join categories on products.category_id = categories.id;";
+            $sql = "SELECT products.id, products.name, products.category_id, products.price, products.price_sale, 
+                           products.stock, products.image_main, categores.name AS categoryName 
+                    FROM products 
+                    JOIN categores ON products.category_id = categores.id;";
             $query = $this->db->pdo->query($sql);
             $result = $query->fetchAll();
             return $result;
         }
+        
 
         public function addProducttoDB($destPath) {
             echo "Hàm addProducttoDB() đã được gọi!<br>"; // Kiểm tra hàm có chạy không
@@ -101,13 +104,13 @@
        
         public function updateProducttoDB($destPath) {
             // Lấy thông tin sanr phẩm hiện tại từ DB
-            $user = $this->getProductByID($_GET['id']);
-            if (!$user) {
+            $product = $this->getProductByID($_GET['id']);
+            if (!$product) {
                 return false;
             }
             $id = $_GET['id'];
             
-            $name = isset($_POST['name']) && $_POST['name'] !== '' ? $_POST['name'] : $user->name;
+            $name = isset($_POST['name']) && $_POST['name'] !== '' ? $_POST['name'] : $product->name;
             $category_id = isset($_POST['category_id']) && $_POST['category_id'] !== '' ? $_POST['category_id'] : $product->category_id;
             $description = isset($_POST['description']) && $_POST['description'] !== '' ? $_POST['description'] : $product->description;
             $price = isset($_POST['price']) && $_POST['price'] !== '' ? $_POST['price'] : $product->price;
@@ -137,7 +140,7 @@
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':price_sale', $price_sale);
             $stmt->bindParam(':stock', $stock);
-            $stmt->bindParam(':image_main', $image);
+            $stmt->bindParam(':image_main', $image_main);
             $stmt->bindParam(':updated_at', $now);
             $stmt->bindParam(':id', $id);
             return $stmt->execute();
@@ -151,14 +154,14 @@
             return $stmt->execute();
         }
 
-        public function getCategories() {
+        public function getCategores() {
             try {
-                $sql = "SELECT id, name FROM categories"; 
+                $sql = "SELECT id, name FROM categores"; 
                 $stmt = $this->db->pdo->prepare($sql); // Sử dụng $this->db->pdo thay vì $this->conn
                 $stmt->execute();
-                $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
+                $categores = $stmt->fetchAll(PDO::FETCH_OBJ);
         
-                return $categories;
+                return $categores;
             } catch (PDOException $e) {
                 echo "<p style='color: red;'>Lỗi SQL: " . $e->getMessage() . "</p>";
                 return [];

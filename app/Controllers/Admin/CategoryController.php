@@ -1,129 +1,121 @@
 <?php
-class CategoryController {
-    
+class CategoryController
+{
 
-    public function getAllCategory() {
+
+    public function getAllCategory()
+    {
         $categoryModel = new CategoryModel();
-        $listCategory = $categoryModel->getAllData();
-
+        $listCategori = $categoryModel->allCategory();
         include 'app/Views/Admin/categories.php';
     }
 
-    public function addCategory() {
-        $categoryModel = new CategoryModel();
-        $listCategory = $categoryModel->getCategories(); 
-        include_once "./app/Views/Admin/add-category.php";
-    }
-    
-
-    public function checkValidate() {
-        $name = $_POST['name'] ?? null;
-        $category_id = $_POST['category_id'] ?? null;
-        $act = isset($_GET['act']) ? $_GET['act'] : "";
-// echo "act: " . $act . "<br>";
-// echo "name: " . $name . "<br>";
-// echo "category_id" . $category_id."<br>";
-
-        if($name != "" && $category_id != "" && $act = "post-update-category") {
-            return true;
-        } elseif($name != "" &&  $act = "post-add-category") {
-            return true;
-        } else {
-            $_SESSION['error'] = "Bạn nhập thiếu thông tin";
-            return false;
-        }
+    public function addCategory()
+    {
+        include 'app/Views/Admin/add-category.php';
     }
 
-    public function addPostCategory() {
+
+    // public function checkValidate()
+    // {
+    //     $name = $_POST['name'] ?? null;
+    //     $category_id = $_POST['category_id'] ?? null;
+    //     $act = isset($_GET['act']) ? $_GET['act'] : "";
+    //     // echo "act: " . $act . "<br>";
+    //     // echo "name: " . $name . "<br>";
+    //     // echo "category_id" . $category_id."<br>";
+
+    //     if ($name != "" && $category_id != "" && $act = "post-update-category") {
+    //         return true;
+    //     } elseif ($name != "" &&  $act = "post-add-category") {
+    //         return true;
+    //     } else {
+    //         $_SESSION['error'] = "Bạn nhập thiếu thông tin";
+    //         return false;
+    //     }
+    // }
+
+    public function addPostCategory()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if(!$this->checkValidate()) {
-                header("location: " . BASE_URL > "?role=admin&act=add-category");
-                exit;
-            }         
+            // if (!$this->checkValidate()) {
+            //     header("location: " . BASE_URL > "?role=admin&act=add-category");
+            //     exit;
+            // }
 
             $categoryModel = new CategoryModel();
-            $message = $categoryModel->addCategorytoDB();
+            $message = $categoryModel->addCategory();
 
             if ($message) {
                 $_SESSION['message'] = "Them moi thanh cong";
-                    header("location: " . BASE_URL . "?role=admin&act=all-category" );
-                    exit;
-            }else {
+                header("location: " . BASE_URL . "?role=admin&act=all-category");
+                exit;
+            } else {
                 $_SESSION['message'] = "Them moi khong thanh cong";
-                header("location: " . BASE_URL . "?role=admin&act=add-category" );
+                header("location: " . BASE_URL . "?role=admin&act=add-category");
                 exit;
             }
+        }  else {
+            header("Location: " . BASE_URL . "?role=admin&act=add-category");
+            exit;
         }
+        
     }
 
-   
-    public function updateCategory() {
-        if(!isset($_GET['id'])){
+
+    public function updateCategory()
+    {
+        if (!isset($_GET['id'])) {
             $_SESSION['message'] = "Vui long chon danh muc can sua";
-            header("location: " . BASE_URL . "?role=admin&act=all-category" );
+            header("location: " . BASE_URL . "?role=admin&act=all-category");
             exit;
         }
         $categoryModel = new CategoryModel();
         $category = $categoryModel->getCategoryByID();
-        if(!$category) {
-            $_SESSION['message'] = "Khong tim thay du lieu";
-            header("location: " . BASE_URL . "?role=admin&act=all-category" );
-            exit;
-        }
+        
         include 'app/Views/Admin/update-category.php';
     }
 
-    public function updatePostCategory() {
+    public function updatePostCategory()
+    {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if(!isset($_GET['id'])){
+            if (!isset($_GET['id'])) {
                 $_SESSION['message'] = "Vui lòng chọn danh mục cần sửa";
-                header("location: " . BASE_URL . "?role=admin&act=all-category" );
+                header("location: " . BASE_URL . "?role=admin&act=all-category");
                 exit;
             }
-            
+
             $categoryModel = new CategoryModel();
-            $category = $categoryModel->getCategoryByID($_GET['id']);
-            
-            if (!$category) {
-                $_SESSION['message'] = "Không tìm thấy danh mục";
-                header("location: " . BASE_URL . "?role=admin&act=all-category" );
-                exit;
-            }
-            
-            
             $message = $categoryModel->updateCategorytoDB();
-    
+
             if ($message) {
                 $_SESSION['message'] = "Chỉnh sửa thành công";
-                header("location: " . BASE_URL . "?role=admin&act=all-category" );
+                header("location: " . BASE_URL . "?role=admin&act=all-category");
+                exit;
             } else {
                 $_SESSION['message'] = "Chỉnh sửa không thành công";
-                header("location: " . BASE_URL . "?role=admin&act=update-category&id=" . $_GET['id'] );
+                header("location: " . BASE_URL . "?role=admin&act=update-category&id=" . $_GET['id']);
+                exit;
             }
+          
+        }else {
+            header("Location: " . BASE_URL . "?role=admin&act=update-category&id=" . $_GET['id']);
             exit;
         }
     }
-    
-    public function deleteCategory() {
-        if (!isset($_GET['id']) || empty($_GET['id'])) {
+
+    public function deleteCategory()
+    {
+        if (!isset($_GET['id']) ) {
             $_SESSION['message'] = "Vui lòng chọn danh mục cần xóa";
             header("location: " . BASE_URL . "?role=admin&act=all-category");
             exit;
         }
-    
-        $id = $_GET['id'];
+
         $categoryModel = new CategoryModel();
-        $category = $categoryModel->getCategoryById();
-    
-        if (!$category) {
-            $_SESSION['message'] = "Không tìm thấy danh mục";
-            header("location: " . BASE_URL . "?role=admin&act=all-category");
-            exit;
-        }
-    
-        $isDeleted = $categoryModel->deleteCategoryById($id);
-    
-        if ($isDeleted) {
+        $message = $categoryModel->deleteCategory();
+
+        if ($message) {
             $_SESSION['message'] = "Xóa danh mục thành công";
             header("location: " . BASE_URL . "?role=admin&act=all-category");
             exit;
@@ -133,5 +125,4 @@ class CategoryController {
             exit;
         }
     }
-    
 }

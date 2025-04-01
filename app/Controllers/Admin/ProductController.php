@@ -18,7 +18,7 @@ class ProductController extends ControllerAdmin {
 
     public function addProduct() {
         $productModel = new ProductModel();
-        $listCategory = $productModel->getCategories(); 
+        $listCategory = $productModel->getcategores(); 
     
         
         include_once "./app/Views/Admin/add-product.php";

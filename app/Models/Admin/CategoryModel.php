@@ -6,7 +6,7 @@
             $this->db = new Database();
         }
 
-        public function getAllData() {
+        public function allCategory() {
             $sql = "select * from categores";
             $query = $this->db->pdo->query($sql);
             $result = $query->fetchAll();
@@ -14,21 +14,25 @@
         }
 
        
-        public function addCategorytoDB() {
-            $name = $_POST['name'];
-            $now = date('Y-m-d H:i:s');
+        public function addCategory() {
+            try{
+                // Kiểm tra dữ liệu đầu vào
+                if (!isset($_POST['name']) || empty(trim($_POST['name']))) {
+                    throw new Exception("Tên danh mục không được để trống");
+                }
 
+                 // Làm sạch dữ liệu đầu vào
+                 $name = htmlspecialchars(trim($_POST['name']));
 
-
-            $sql = "INSERT INTO categores (name, category_id, created_at, updated_at) 
-            VALUES (:name, :category_id, :created_at, :updated_at)";
-
-
-            $stmt = $this->db->pdo->prepare($sql);
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':created_at', $now);
-            $stmt->bindParam(':updated_at', $now);
-            return $stmt->execute();
+                $sql = "INSERT INTO categores(name) VALUES (:name)";
+                $stmt = $this->db->pdo->prepare($sql);
+                $stmt->bindParam(':name', $name);
+                $stmt->execute();
+                return true;
+            }
+            catch(Exception $e){
+                return ['error' => $e->getMessage()];
+            }
         }
 
         public function getCategoryById() {
@@ -47,42 +51,41 @@
        
         public function updateCategorytoDB() {
             // Lấy thông tin sanr phẩm hiện tại từ DB
-            $category = $this->getCategoryByID($_GET['id']);
-            if (!$category) {
-                return false;
+            try{
+                $id = $_GET['id'];
+                if (!isset($_POST['name']) || empty(trim($_POST['name']))) {
+                    throw new Exception("Tên danh mục không được để trống");
+                }
+    
+                // Làm sạch dữ liệu đầu vào
+                $name = htmlspecialchars(trim($_POST['name']));
+    
+                // Truy vấn thêm danh mục
+                $sql = "UPDATE categores SET name=:name WHERE id = :id";
+                $stmt = $this->db->pdo->prepare($sql);
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':id', $id);
+                $stmt->execute();
+    
+                return true;
             }
-            $id = $_GET['id'];
-            
-            $name = isset($_POST['name']) && $_POST['name'] !== '' ? $_POST['name'] : $category->name;
-            $now = date('Y-m-d H:i:s');
+            catch(Exception $e){
+                echo"loi".$e->getMessage();
+            }
            
-            // Câu truy vấn cập nhật
-            $sql = "
-                UPDATE categores SET 
-                    name = :name,
-                    id = :id,
-                    updated_at = :updated_at
-                WHERE id = :id
-            ";
-        
-            $stmt = $this->db->pdo->prepare($sql);
-            $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':updated_at', $now);
-            $stmt->bindParam(':id', $id);
-            return $stmt->execute();
         }
         
-        public function deleteCategoryById($id) {
+        public function deleteCategory() {
+            $id = $_GET['id'];
             $sql = "DELETE FROM categores WHERE id = :id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
-        
             return $stmt->execute();
         }
 
         public function getcategores() {
             try {
-                $sql = "SELECT id, name FROM categories";
+                $sql = "SELECT id, name FROM categores";
                 $stmt = $this->db->pdo->prepare($sql);
                 $stmt->execute();
                 return $stmt->fetchAll(PDO::FETCH_OBJ);
