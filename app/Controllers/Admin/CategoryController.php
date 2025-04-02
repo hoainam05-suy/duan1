@@ -104,25 +104,28 @@ class CategoryController
         }
     }
 
-    public function deleteCategory()
-    {
-        if (!isset($_GET['id']) ) {
-            $_SESSION['message'] = "Vui lòng chọn danh mục cần xóa";
-            header("location: " . BASE_URL . "?role=admin&act=all-category");
-            exit;
+    public function deleteCategory() {
+        try {
+            if (!isset($_GET['id'])) {
+                $_SESSION['message'] = "Vui lòng chọn danh mục cần xóa";
+                header("location: " . BASE_URL . "?role=admin&act=all-category");
+                exit;
+            }
+    
+            $categoryModel = new CategoryModel();
+            $message = $categoryModel->deleteCategory();
+    
+            if ($message) {
+                $_SESSION['message'] = "Xóa danh mục thành công";
+            } else {
+                $_SESSION['message'] = "Xóa danh mục không thành công";
+            }
+        } catch (Exception $e) {
+            $_SESSION['message'] = "Lỗi: " . $e->getMessage();
         }
-
-        $categoryModel = new CategoryModel();
-        $message = $categoryModel->deleteCategory();
-
-        if ($message) {
-            $_SESSION['message'] = "Xóa danh mục thành công";
-            header("location: " . BASE_URL . "?role=admin&act=all-category");
-            exit;
-        } else {
-            $_SESSION['message'] = "Xóa danh mục không thành công";
-            header("location: " . BASE_URL . "?role=admin&act=all-category");
-            exit;
-        }
+    
+        header("location: " . BASE_URL . "?role=admin&act=all-category");
+        exit;
     }
+    
 }

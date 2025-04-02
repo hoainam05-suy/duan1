@@ -1,27 +1,15 @@
 <?php
- error_reporting(E_ALL);
- ini_set('display_errors', 1);
-class ProductController extends ControllerAdmin {
+class ProductController{
 
     public function showAllProduct() {
         $productModel = new ProductModel();
-        $listProduct = $productModel->getAllData();
-
+        $listProduct = $productModel->getAllProduct();
         include 'app/Views/Admin/products.php';
     }
-    public function getAllProduct() {
-        $productModel = new ProductModel();
-        $listProduct = $productModel->getAllData();
-
-        include 'app/Views/Admin/products.php';
-    }
-
-    public function addProduct() {
-        $productModel = new ProductModel();
-        $listCategory = $productModel->getcategores(); 
-    
-        
-        include_once "./app/Views/Admin/add-product.php";
+     public function addProduct(){
+        $categoryModel = new CategoryModel();
+        $listCategory = $categoryModel->allCategory();
+        include 'app/Views/Admin/add-product.php';
     }
     
 
@@ -50,7 +38,7 @@ class ProductController extends ControllerAdmin {
     public function addPostProduct() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if(!$this->checkValidate()) {
-                header("location: " . BASE_URL > "?role=admin&act=add-product");
+                header("location: " . BASE_URL . "?role=admin&act=add-product");
                 exit;
             }
             // them anh
@@ -160,115 +148,146 @@ class ProductController extends ControllerAdmin {
     // }
     
 
+    public function deleteProduct() {
+        try {
+            if (!isset($_GET['id']) || empty($_GET['id'])) {
+                $_SESSION['message'] = "Vui lòng chọn sản phẩm cần xóa";
+                header("location: " . BASE_URL . "?role=admin&act=all-product");
+                exit;
+            }
+    
+            $productModel = new ProductModel();
+            $product = $productModel->getProductById();
+    
+            if ($product->image_main !== null) {
+                if (file_exists($product->image_main)) {
+                    unlink($product->image_main);
+                }
+            }
+    
+            $listImage = $productModel->getProductImageByID();
+            foreach ($listImage as $value) {
+                if ($value->image !== null && file_exists($value->image)) {
+                    unlink($value->image);
+                }
+            }
+    
+            $message = $productModel->deleteProductToDB();
+    
+            if ($message) {
+                $_SESSION['message'] = "Xóa sản phẩm thành công";
+            } else {
+                $_SESSION['message'] = "Xóa sản phẩm không thành công";
+            }
+        } catch (Exception $e) {
+            $_SESSION['message'] = "Lỗi: " . $e->getMessage();
+        }
+    
+        header("location: " . BASE_URL . "?role=admin&act=all-product");
+        exit;
+    }
+    
 
-
-
-
-
-    public function updateProduct() {
-        if(!isset($_GET['id'])){
-            $_SESSION['message'] = "Vui long chon san pham can sua";
-            header("location: " . BASE_URL . "?role=admin&act=all-product" );
+    public function updateProduct(){
+        if (!isset($_GET['id']) || empty($_GET['id'])) {
+            $_SESSION['message'] = "Vui lòng chọn product cần xóa";
+            header("location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
+        $categoryModel = new CategoryModel();
+        $listCategory = $categoryModel->allCategory();
+
         $productModel = new ProductModel();
         $product = $productModel->getProductByID();
-        if(!$product) {
-            $_SESSION['message'] = "Khong tim thay du lieu";
-            header("location: " . BASE_URL . "?role=admin&act=all-product" );
-            exit;
-        }
+        $listProductImage = $productModel->getProductImageByID();
         include 'app/Views/Admin/update-product.php';
+
     }
 
-    public function updatePostProduct() {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if(!isset($_GET['id'])){
-                $_SESSION['message'] = "Vui lòng chọn san pham cần sửa";
-                header("location: " . BASE_URL . "?role=admin&act=all-product" );
+    public function updatePostProduct(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if (!isset($_GET['id']) || empty($_GET['id'])) {
+                $_SESSION['message'] = "Vui lòng chọn product cần xóa";
+                header("location: " . BASE_URL . "?role=admin&act=all-product");
                 exit;
             }
-            
+            if(!$this->checkValidate()){
+                header("Location: " . BASE_URL . "?role=admin&act=update-product&id=" . $_GET['id']);
+                exit;
+            }
             $productModel = new ProductModel();
-            $product = $productModel->getProductByID($_GET['id']);
-            
-            if (!$product) {
-                $_SESSION['message'] = "Không tìm thấy sản phẩm";
-                header("location: " . BASE_URL . "?role=admin&act=all-product" );
-                exit;
-            }
-            
-            // Xử lý ảnh
+            $product = $productModel->getProductByID();
+
             $uploadDir = 'assets/Admin/upload/';
             $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            $destPath = $product->image_main; // Giữ ảnh cũ nếu không có ảnh mới
+            $destPath = $product->image_main;
+
             if (!empty($_FILES['image_main']['name'])) {
                 $fileTmPath = $_FILES['image_main']['tmp_name'];
                 $fileType = mime_content_type($fileTmPath);
                 $fileName = basename($_FILES['image_main']['name']);
                 $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-    
+
                 $newFileName = uniqid() . '.' . $fileExtention;
-    
+
                 if (in_array($fileType, $allowedTypes)){
                     $destPath = $uploadDir . $newFileName;
-                    if(move_uploaded_file($fileTmPath, $destPath)) {
-                        // Xóa ảnh cũ nếu upload thành công
-                        if($product->image_main && file_exists($product->image_main)) {
-                            unlink($product->image_main);
+                    if(!move_uploaded_file($fileTmPath, $destPath)) {
+                        $destPath = "";
+                    }
+                    unlink($product->image_main);
+                }
+            }
+
+            $productModel = new ProductModel();
+            $massage = $productModel->updateProductToDB($destPath);
+
+
+            if (!$massage) {
+                $_SESSION['message'] = "Chinh sua khong thanh cong";
+                    header("location: " . BASE_URL . "?role=admin&act=update-product&id=" . $_GET['id'] );
+                    exit;
+            }
+
+            // them thu vien anh
+            if (isset($_FILES['image']) && count($_FILES['image']) > 0) {
+                $listImage = $productModel->getProductImageByID();
+                foreach ($listImage as $key => $value){
+                    if($value->image !== null){
+                        unlink($value->image);
+                    }
+                }
+                $productModel->deleteImageGary();
+
+                foreach ($_FILES['image']['name'] as $key => $name){
+                    $destPathImage = "";
+                    if (!empty($name)) {
+                        $fileTmPath = $_FILES['image']['tmp_name'][$key];
+                        $fileType = mime_content_type($fileTmPath);
+                        $fileName = basename($name);
+                        $fileExtention = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        
+                        $newFileName = uniqid() . '.' . $fileExtention;
+        
+                        if (in_array($fileType, $allowedTypes)){
+                            $destPathImage = $uploadDir . $newFileName;
+                            if(!move_uploaded_file($fileTmPath, $destPathImage)) {
+                                $destPathImage = "";
+                            }
+                            
                         }
-                    } else {
-                        $destPath = $product->image_main; // Giữ lại ảnh cũ nếu upload thất bại
+                    }
+                    if ($destPathImage !== "") {
+                        if (!$productModel->addGaryImage($destPathImage, $_GET['id'])) {
+                            die("Lỗi: Không thể thêm ảnh vào cơ sở dữ liệu.");
+                        }
                     }
                 }
             }
-            
-            $message = $productModel->updateProducttoDB($destPath);
-    
-            if ($message) {
-                $_SESSION['message'] = "Chỉnh sửa thành công";
-                header("location: " . BASE_URL . "?role=admin&act=all-product" );
-            } else {
-                $_SESSION['message'] = "Chỉnh sửa không thành công";
-                header("location: " . BASE_URL . "?role=admin&act=update-product&id=" . $_GET['id'] );
-            }
-            exit;
-        }
-    }
-    
-    public function deleteProduct() {
-        if (!isset($_GET['id']) || empty($_GET['id'])) {
-            $_SESSION['message'] = "Vui lòng chọn sản phẩm cần xóa";
-            header("location: " . BASE_URL . "?role=admin&act=all-product");
-            exit;
-        }
-    
-        $id = $_GET['id'];
-        $productModel = new ProductModel();
-        $product = $productModel->getProductById();
-    
-        if (!$product) {
-            $_SESSION['message'] = "Không tìm thấy sản phẩm";
-            header("location: " . BASE_URL . "?role=admin&act=all-product");
-            exit;
-        }
-    
-        // Xóa ảnh nếu tồn tại
-        if (!empty($product->image_main) && file_exists($product->image_main)) {
-            unlink($product->image_main);
-        }
-    
-        $isDeleted = $productModel->deleteProductById($id);
-    
-        if ($isDeleted) {
-            $_SESSION['message'] = "Xóa sản phẩm thành công";
-            header("location: " . BASE_URL . "?role=admin&act=all-product");
-            exit;
-        } else {
-            $_SESSION['message'] = "Xóa sản phẩm không thành công";
+            $_SESSION['message'] = "Chinh sua thanh cong";
             header("location: " . BASE_URL . "?role=admin&act=all-product");
             exit;
         }
     }
-    
+
 }

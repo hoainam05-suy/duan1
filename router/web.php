@@ -72,7 +72,7 @@ tạo ProductController.php
 */
         case 'all-product': {
             $productController = new ProductController();
-            $productController->getAllProduct();
+            $productController->showAllProduct();
             break;
         }
         case 'add-product':{
