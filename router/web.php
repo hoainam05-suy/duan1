@@ -3,7 +3,23 @@ $role = isset($_GET['role']) ? $_GET['role'] : "user";
 $act = isset($_GET['act']) ? $_GET['act'] : "";
 
 if($role =="user"){
-    echo"trang user";
+    switch ($act) {
+        case '': {
+            $dashboardController = new DashboardController();
+            $dashboardController -> dashboard();
+            break;
+        }
+        case 'login':{
+            $loginController = new LoginUserController();
+            $loginController -> login();
+            break;
+        }
+        case 'post-login':{
+            $loginController = new LoginUserController();
+            $loginController -> postlogin();
+            break;
+        }
+    }
 }else{
     switch($act){
         // http://localhost/duan1/?role=admin&act=home
