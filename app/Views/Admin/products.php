@@ -150,8 +150,14 @@
                                                     <div class="body-text text-main-dark mt-4">
                                                         <img src="<?= $value->image_main?>" alt="" srcset="" width="50px">
                                                     </div>
+
                                                     <div class="body-text text-main-dark mt-4">
-                                                        <?= $value->categoryName ?></div>
+                                                        <?php foreach($listCategory as $category): ?>
+                                                            <?php if($category->id == $value->category_id): ?>
+                                                                <?= $category->name ?>
+                                                            <?php endif; ?>
+                                                        <?php endforeach; ?>
+                                                    </div>
                                                     <div class="body-text text-main-dark mt-4">
                                                         <?= isset($value->price) ? number_format($value->price, 0, ',', '.') . ' VNĐ' : 'Không có giá' ?>
                                                     

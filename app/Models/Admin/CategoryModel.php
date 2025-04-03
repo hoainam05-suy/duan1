@@ -83,7 +83,7 @@
             return $stmt->execute();
         }
 
-        public function getcategories() {
+        public function getCategories() {
             try {
                 $sql = "SELECT id, name FROM categories";
                 $stmt = $this->db->pdo->prepare($sql);

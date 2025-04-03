@@ -59,7 +59,7 @@
                                 echo "<p>". $_SESSION['message'] ."</p>";
                                 unset($_SESSION['message']);
                             }
-                            ?>
+                        ?>
                     </div>
                     <div>
                         <form class="" id="register-form" action="<?= BASE_URL ?>?act=post-register" method="post" accept-charset="utf-8" data-mailchimp="true">

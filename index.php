@@ -8,11 +8,11 @@ include 'app/Models/Admin/UserModel.php';
 include 'app/Models/Admin/ProductModel.php';
 include 'app/Models/Admin/CategoryModel.php';
 
+
 include 'app/Models/Users/CategoryUserModel.php';
 include 'app/Models/Users/ProductUserModel.php';
 include 'app/Models/Users/LoginModel.php';
-
-//controller
+//controller admin
 include 'app/Controllers/Admin/ControllerAdmin.php';
 include 'app/Controllers/Admin/HomeController.php';
 include 'app/Controllers/Admin/LoginController.php';
@@ -20,10 +20,9 @@ include 'app/Controllers/Admin/UserController.php';
 include 'app/Controllers/Admin/ProductController.php';
 include 'app/Controllers/Admin/CategoryController.php';
 
-include 'app/Controllers/Users/DashboardController.php';
+//controller user
+include 'app/Controllers/Users/DashBoardController.php';
 include 'app/Controllers/Users/LoginUserController.php';
-
-
 
 const BASE_URL = "http://localhost/duan1/";
 //router

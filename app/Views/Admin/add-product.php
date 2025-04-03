@@ -67,7 +67,7 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
-                                <!-- <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
                                     <h3>Add New Product</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
@@ -77,7 +77,7 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <a href="#"><div class="text-tiny">User</div></a>
+                                            <a href="#"><div class="text-tiny">Product</div></a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
@@ -86,7 +86,7 @@
                                             <div class="text-tiny">Add New Product</div>
                                         </li>
                                     </ul>
-                                </div> -->
+                                </div>
                                 <!-- add-new-user -->
                                  
                                 <form action="<?= BASE_URL ?>?role=admin&act=post-add-product" class="form-add-new-product form-style-2" method="post" enctype="multipart/form-data">
@@ -107,11 +107,19 @@
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
-                                                <label class="body-title mb-10" for="category">Danh mục</label>
-                                                
-                                                <select name="category" id="category">
-                                                    <?php foreach ($listCategory as $key => $value) : ?>
-                                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                <div class="body-title mb-10" for="category_id">Danh mục</div>
+                                                <!-- <select name="category_id" id="category">
+                                                    <?php if (!empty($listCategory)): ?>
+                                                        <?php foreach ($listCategory as $value): ?>
+                                                            <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <option value="">Không có danh mục nào</option>
+                                                    <?php endif; ?>
+                                                </select> -->
+                                                <select name="category_id" id="category_id" >
+                                                    <?php foreach ($listCategory as $category) : ?>
+                                                        <option value="<?= $category->id ?>"><?= $category->name ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
 

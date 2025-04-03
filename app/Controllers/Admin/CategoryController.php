@@ -1,47 +1,37 @@
 <?php
-class CategoryController
-{
+class CategoryController {
+    
 
-
-    public function getAllCategory()
-    {
+    public function getAllCategory() {
         $categoryModel = new CategoryModel();
-        $listCategori = $categoryModel->allCategory();
+        $listCategory = $categoryModel->allCategory();
+
         include 'app/Views/Admin/categories.php';
     }
 
-    public function addCategory()
-    {
-        include 'app/Views/Admin/add-category.php';
+    public function addCategory() {
+        $categoryModel = new CategoryModel();
+        $listCategory = $categoryModel->getCategories(); 
+        include "./app/Views/Admin/add-category.php";
     }
 
+    public function checkValidate() {
+        $name = $_POST['name'] ?? null;
 
-    // public function checkValidate()
-    // {
-    //     $name = $_POST['name'] ?? null;
-    //     $category_id = $_POST['category_id'] ?? null;
-    //     $act = isset($_GET['act']) ? $_GET['act'] : "";
-    //     // echo "act: " . $act . "<br>";
-    //     // echo "name: " . $name . "<br>";
-    //     // echo "category_id" . $category_id."<br>";
+        if($name != ""  ) {
+            return true;
+        } else {
+            $_SESSION['error'] = "Bạn nhập thiếu thông tin";
+            return false;
+        }
+    }
 
-    //     if ($name != "" && $category_id != "" && $act = "post-update-category") {
-    //         return true;
-    //     } elseif ($name != "" &&  $act = "post-add-category") {
-    //         return true;
-    //     } else {
-    //         $_SESSION['error'] = "Bạn nhập thiếu thông tin";
-    //         return false;
-    //     }
-    // }
-
-    public function addPostCategory()
-    {
+    public function addPostCategory() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // if (!$this->checkValidate()) {
-            //     header("location: " . BASE_URL > "?role=admin&act=add-category");
-            //     exit;
-            // }
+            if(!$this->checkValidate()) {
+                header("location: " . BASE_URL > "?role=admin&act=add-category");
+                exit;
+            }         
 
             $categoryModel = new CategoryModel();
             $message = $categoryModel->addCategory();
@@ -59,7 +49,6 @@ class CategoryController
             header("Location: " . BASE_URL . "?role=admin&act=add-category");
             exit;
         }
-        
     }
 
 
@@ -79,13 +68,22 @@ class CategoryController
     public function updatePostCategory()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (!isset($_GET['id'])) {
+            if(!isset($_GET['id'])){
                 $_SESSION['message'] = "Vui lòng chọn danh mục cần sửa";
                 header("location: " . BASE_URL . "?role=admin&act=all-category");
                 exit;
             }
 
             $categoryModel = new CategoryModel();
+            $category = $categoryModel->getCategoryByID($_GET['id']);
+            
+            if (!$category) {
+                $_SESSION['message'] = "Không tìm thấy danh mục";
+                header("location: " . BASE_URL . "?role=admin&act=all-category" );
+                exit;
+            }
+            
+            
             $message = $categoryModel->updateCategorytoDB();
 
             if ($message) {

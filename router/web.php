@@ -16,7 +16,32 @@ if($role =="user"){
         }
         case 'post-login':{
             $loginController = new LoginUserController();
-            $loginController -> postlogin();
+            $loginController->postlogin();
+            break;
+        }
+        case 'logout':{
+            $loginController = new LoginUserController();
+            $loginController->logout();
+            break;
+        }
+        case 'register':{
+            $loginController = new LoginUserController();
+            $loginController->register();
+            break;
+        }
+        case 'post-register':{
+            $loginController = new LoginUserController();
+            $loginController->postRegister();
+            break;
+        }
+        case 'my-account':{
+            $dashBoardController = new DashBoardController();
+            $dashBoardController->myAccount();
+            break;
+        }
+        case 'account-detail':{
+            $dashBoardController = new DashBoardController();
+            $dashBoardController->accountDetail();
             break;
         }
     }
@@ -119,36 +144,36 @@ tạo ProductController.php
         }
 
 // end Tu add product
-case 'all-category': {
-    $categoryController = new CategoryController();
-    $categoryController->getAllCategory();
-    break;
-}
-case 'add-category':{
-    $categoryController = new CategoryController();
-    $categoryController->addCategory();
-    break;
-}
-case 'post-add-category':{
-    $categoryController = new CategoryController();
-    $categoryController->addPostCategory();
-    break;
-}
-case 'update-category': {
-    $categoryController = new CategoryController();
-    $categoryController->updateCategory();
-    break;
-}
-case 'update-post-category': {
-    $categoryController = new CategoryController();
-    $categoryController->updatePostCategory();
-    break;
-}
-case 'delete-category': {
-    $categoryController = new CategoryController();
-    $categoryController->deleteCategory();
-    break;
-}
+        case 'all-category': {
+            $categoryController = new CategoryController();
+            $categoryController->getAllCategory();
+            break;
+        }
+        case 'add-category':{
+            $categoryController = new CategoryController();
+            $categoryController->addCategory();
+            break;
+        }
+        case 'post-add-category':{
+            $categoryController = new CategoryController();
+            $categoryController->addPostCategory();
+            break;
+        }
+        case 'update-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updateCategory();
+            break;
+        }
+        case 'update-post-category': {
+            $categoryController = new CategoryController();
+            $categoryController->updatePostCategory();
+            break;
+        }
+        case 'delete-category': {
+            $categoryController = new CategoryController();
+            $categoryController->deleteCategory();
+            break;
+        }
 
 
 

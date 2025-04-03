@@ -62,6 +62,7 @@
                     </div>
                     <span class="text-3 fw-7 text-uppercase title wow fadeInUp" data-wow-delay="0s">SHOP BY CATEGORIES</span>
                </div>
+               
                <div class="row">
                     <div class="col-xl-9 col-lg-8 col-md-8">
                         <div dir="ltr" class="swiper tf-sw-collection" data-preview="3" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="false">

@@ -99,7 +99,7 @@
                                         </div>
                                         <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-category"><i class="icon-plus"></i>Add category</a>
                                     </div>
-                                    <div class="wg-table table-product-list">
+                                    <div class="wg-table table-category-list">
                                         <ul class="table-title flex gap20 mb-14">
                                             <li>
                                                 <div class="body-title">STT</div>
@@ -114,7 +114,7 @@
                                            
                                         </ul>
                                         <ul class="flex flex-column">
-                                            <?php foreach($listCategori as $key => $value):  ?>
+                                            <?php foreach($listCategory as $key => $value):  ?>
                                                 <li class="wg-product item-row gap20">
                                                     <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
                                                     <div class="body-text text-main-dark mt-4"><?= $value->name?></div>

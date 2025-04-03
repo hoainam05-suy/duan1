@@ -83,7 +83,7 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Add New User</div>
+                                            <div class="text-tiny">Add New Category</div>
                                         </li>
                                     </ul>
                                 </div> -->

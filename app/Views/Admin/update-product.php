@@ -68,7 +68,7 @@
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
                                 <div class="flex items-center flex-wrap justify-between gap20 mb-30">
-                                    <h3>Update User</h3>
+                                    <h3>Update Product</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
                                             <a href="index.html"><div class="text-tiny">Dashboard</div></a>
@@ -77,13 +77,13 @@
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <a href="#"><div class="text-tiny">User</div></a>
+                                            <a href="#"><div class="text-tiny">Product</div></a>
                                         </li>
-                                        <li>
+                                        <li>    
                                             <i class="icon-chevron-right"></i>
                                         </li>
                                         <li>
-                                            <div class="text-tiny">Update Product</div>
+                                            <div class="text-tiny">Update product</div>
                                         </li>
                                     </ul>
                                 </div>
@@ -106,15 +106,13 @@
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
-                                                <div class="body-title mb-10" for="category">Danh muc</div>
-                                                <select name="category" id="category">
-                                                    <?php foreach ($listCategory as $key => $value): ?>
-                                                        <option value="<?= $value->id ?>"
-                                                            <?php 
-                                                                if($product->category_id == $value->id):?> selected
-                                                        
-                                                            <?php endif?>><?= $value->name ?></option>
-                                                    <?php endforeach; ?>
+                                                <label class="body-title mb-10" for="category_id">Danh mục</label>
+                                                <select name="category_id" id="category_id">
+                                                    <?php foreach ($listCategory as $key => $value) : ?>
+                                                        <option value="<?= $value->id ?>" <?= ($value->id == $product->category_id) ? 'selected' : '' ?>>
+                                                            <?= $value->name ?>
+                                                        </option>
+                                                    <?php endforeach; ?>                                                   
                                                 </select>
                                             </fieldset>
 

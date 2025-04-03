@@ -21,7 +21,7 @@ class ProductModel
     public function addProducttoDB($destPath)
     {
         $name = isset($_POST['name']) ? $_POST['name'] : '';
-        $category = isset($_POST['category']) && is_numeric($_POST['category']) ? $_POST['category'] : null;
+        $category = isset($_POST['category_id']) && is_numeric($_POST['category_id']) ? $_POST['category_id'] : null;
         $price = isset($_POST['price']) && is_numeric($_POST['price']) ? $_POST['price'] : 0;
         $pricesale = isset($_POST['pricesale']) && is_numeric($_POST['pricesale']) ? $_POST['pricesale'] : null;
         $stock = isset($_POST['stock']) && is_numeric($_POST['stock']) ? $_POST['stock'] : 0;
@@ -50,16 +50,6 @@ class ProductModel
             return false;
         }
 
-        // return $stmt->execute();
-
-        // try {
-        //     $stmt->execute();
-        //     echo "Thêm sản phẩm thành công!";
-        //     return true; // Trả về true nếu thành công
-        // } catch (PDOException $e) {
-        //     echo "Lỗi khi thêm sản phẩm: " . $e->getMessage(); // Hiển thị lỗi cụ thể
-        //     return false;
-        // }
     }
     public function addGaryImage($destPathImage, $isProduct){
         $sql = "
@@ -71,33 +61,6 @@ class ProductModel
         $stmt->bindParam(':image', $destPathImage);
         return $stmt->execute();
     }
-
-
-    // public function addProducttoDB($imagePath) {
-    //     echo "Hàm addProducttoDB() đã được gọi!<br>"; // Kiểm tra hàm có chạy không
-
-    //     try {
-    //         $stmt = $this->pdo->prepare("INSERT INTO products (name, category_id, price, price_sale, stock, image_main) 
-    //                                      VALUES (:name, :category, :price, :price_sale, :stock, :image)");
-
-    //         $stmt->bindParam(':name', $_POST['name']);
-    //         $stmt->bindParam(':category', $_POST['category']);
-    //         $stmt->bindParam(':price', $_POST['price']);
-    //         $stmt->bindParam(':price_sale', $_POST['price-sale']);
-    //         $stmt->bindParam(':stock', $_POST['stock']);
-    //         $stmt->bindParam(':image', $imagePath);
-
-    //         $stmt->execute();
-    //         echo "✅ INSERT thành công!<br>";
-    //         return true;
-    //     } catch (PDOException $e) {
-    //         echo "❌ Lỗi khi INSERT: " . $e->getMessage(); // Hiển thị lỗi cụ thể
-    //         return false;
-    //     }
-    // }
-
-
-
 
     public function getProductById()
     {
@@ -132,7 +95,7 @@ class ProductModel
     public function updateProductToDB ($destPath){
         $id = $_GET['id'];
         $name = isset($_POST['name']) ? $_POST['name'] : '';
-        $category = isset($_POST['category']) && is_numeric($_POST['category']) ? $_POST['category'] : null;
+        $category = isset($_POST['category_id']) && is_numeric($_POST['category_id']) ? $_POST['category_id'] : null;
         $price = isset($_POST['price']) && is_numeric($_POST['price']) ? $_POST['price'] : 0;
         $pricesale = isset($_POST['pricesale']) && is_numeric($_POST['pricesale']) ? $_POST['pricesale'] : null;
         $stock = isset($_POST['stock']) && is_numeric($_POST['stock']) ? $_POST['stock'] : 0;
@@ -193,6 +156,18 @@ class ProductModel
         return $stmt->execute();
 
     }
-
+    public function getCategories() {
+        try {
+            $sql = "SELECT id, name FROM categories"; 
+            $stmt = $this->db->pdo->prepare($sql); // Sử dụng $this->db->pdo thay vì $this->conn
+            $stmt->execute();
+            $categories = $stmt->fetchAll(PDO::FETCH_OBJ);
+    
+            return $categories;
+        } catch (PDOException $e) {
+            echo "<p style='color: red;'>Lỗi SQL: " . $e->getMessage() . "</p>";
+            return [];
+        }
+    }
 
 }
