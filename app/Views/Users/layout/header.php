@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
-                        <a href="" class="logo-header">
+                        <a href="http://localhost/duan1/" class="logo-header">
                             <img src="assets/Users/images/logo/logo.svg" alt="logo" class="logo">
                         </a>
                     </div>
@@ -17,7 +17,7 @@
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 <li class="menu-item">
-                                    <a href="#" class="item-link">Home<i class="icon icon-arrow-down"></i></a>
+                                    <a href="http://localhost/duan1/" class="item-link">Home<i class="icon icon-arrow-down"></i></a>
                                     <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row-demo">
