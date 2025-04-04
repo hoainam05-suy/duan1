@@ -44,6 +44,16 @@ if($role =="user"){
             $dashBoardController->accountDetail();
             break;
         }
+        case 'update-account'; {
+            $dashBoardController = new DashboardController();
+            $dashBoardController->accountUpdate();
+            break;
+        }
+        case 'shop': {
+            $dashBoardController = new DashboardController();
+            $dashBoardController->showShop();
+            break;
+        }
     }
 }else{
     switch($act){

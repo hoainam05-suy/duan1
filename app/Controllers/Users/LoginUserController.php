@@ -17,7 +17,7 @@ class LoginUserController{
                 exit;
             }else{
 
-            $_SESSION['error'] = 'Email hoac Password khong dung';
+            $_SESSION['message'] = 'Email hoac Password khong dung';
             header("location: ".BASE_URL."?act=login" );
             exit;
             }

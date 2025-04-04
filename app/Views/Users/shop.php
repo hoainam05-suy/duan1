@@ -63,7 +63,7 @@
         </div>
         <!-- trang san pham -->
         <section class="flat-spacing-2">
-        <div class="container">
+            <div class="container">
                 <div class="tf-shop-control grid-3 align-items-center">
                     <div class="tf-control-filter">
                         <a href="#filterShop" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-btn-filter"><span class="icon icon-filter"></span><span class="text">Filter</span></a>
@@ -118,59 +118,59 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="wrapper-control-shop">
                     <div class="meta-filter-shop"></div>
                     <div class="grid-layout wrapper-shop" data-grid="grid-4">
                         <!-- card product 1 -->
-                         <?php foreach($listProduct as $key => $value): ?>
-                        <div class="card-product" data-price="{{$value->price}}" data-color="orange black white">
-                            <div class="card-product-wrapper">
-                                <a href="<?= BASE_URL?>?act=product-detail&product_id=<?=$value->id?>" class="product-img">
-                                    <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
-                                    <img class="img-hover ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>">
-                                </a>
-                                <div class="list-product-btn absolute-2">
-                                    <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                        <span class="icon icon-bag"></span>
-                                        <span class="tooltip">Quick Add</span>
+                        <?php foreach ($listProduct as $key => $value): ?>
+                            <div class="card-product" data-price="{{$value->price}}" data-color="orange black white">
+                                <div class="card-product-wrapper">
+                                    <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="product-img">
+                                        <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
+                                        <img class="img-hover ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>">
                                     </a>
-                                    <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                        <span class="icon icon-heart"></span>
-                                        <span class="tooltip">Add to Wishlist</span>
-                                        <span class="icon icon-delete"></span>
-                                    </a>
-                                    <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                        <span class="icon icon-view"></span>
-                                        <span class="tooltip">Quick View</span>
-                                    </a>
+                                    <div class="list-product-btn absolute-2">
+                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
+                                            <span class="icon icon-bag"></span>
+                                            <span class="tooltip">Quick Add</span>
+                                        </a>
+                                        <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
+                                            <span class="icon icon-heart"></span>
+                                            <span class="tooltip">Add to Wishlist</span>
+                                            <span class="icon icon-delete"></span>
+                                        </a>
+                                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
+                                            <span class="icon icon-view"></span>
+                                            <span class="tooltip">Quick View</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-product-info">
+                                    <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="title link"><?= $value->name ?></a>
+                                    <span class="price"><?= number_format($value->price) ?>VND</span>
+                                    <ul class="list-color-product">
+                                        <li class="list-color-item color-swatch active">
+                                            <span class="tooltip">Orange</span>
+                                            <span class="swatch-value bg_orange-3"></span>
+                                            <img class=" ls-is-cached lazyloaded" data-src="images/products/orange-1.jpg" src="images/products/orange-1.jpg" alt="image-product">
+                                        </li>
+                                        <li class="list-color-item color-swatch">
+                                            <span class="tooltip">Black</span>
+                                            <span class="swatch-value bg_dark"></span>
+                                            <img class=" ls-is-cached lazyloaded" data-src="images/products/black-1.jpg" src="images/products/black-1.jpg" alt="image-product">
+                                        </li>
+                                        <li class="list-color-item color-swatch">
+                                            <span class="tooltip">White</span>
+                                            <span class="swatch-value bg_white"></span>
+                                            <img class=" ls-is-cached lazyloaded" data-src="images/products/white-1.jpg" src="images/products/white-1.jpg" alt="image-product">
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div class="card-product-info">
-                                <a href="<?= BASE_URL?>?act=product-detail&product_id=<?=$value->id?>" class="title link"><?= $value->name ?></a>
-                                <span class="price"><?= number_format($value->price) ?>VND</span>
-                                <ul class="list-color-product">
-                                    <li class="list-color-item color-swatch active">
-                                        <span class="tooltip">Orange</span>
-                                        <span class="swatch-value bg_orange-3"></span>
-                                        <img class=" ls-is-cached lazyloaded" data-src="images/products/orange-1.jpg" src="images/products/orange-1.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">Black</span>
-                                        <span class="swatch-value bg_dark"></span>
-                                        <img class=" ls-is-cached lazyloaded" data-src="images/products/black-1.jpg" src="images/products/black-1.jpg" alt="image-product">
-                                    </li>
-                                    <li class="list-color-item color-swatch">
-                                        <span class="tooltip">White</span>
-                                        <span class="swatch-value bg_white"></span>
-                                        <img class=" ls-is-cached lazyloaded" data-src="images/products/white-1.jpg" src="images/products/white-1.jpg" alt="image-product">
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
                     </div>
                     <!-- pagination -->
                     <ul class="tf-pagination-wrap tf-pagination-list tf-pagination-btn">
@@ -193,7 +193,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
             </div>
         </section>
 
@@ -214,7 +214,7 @@
                             <span class="icon icon-arrow-up"></span>
                         </div>
                         <div id="product-name" class="collapse show">
-                            <form action="<?= BASE_URL?>" method="get">
+                            <form action="<?= BASE_URL ?>" method="get">
                                 <div class="d-flex mb-5">
                                     <input type="hidden" name="act" value="shop">
                                     <input type="text" placeholder="Product Name" name="product-name">

@@ -43,7 +43,7 @@
         }
 
         public function getUserById() {
-            $id = $_SESSION['users']['id'];
+            $id = $_GET['id'];
             $sql = "SELECT * FROM users WHERE id = :id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $id);
@@ -52,6 +52,7 @@
                 return $stmt->fetch();
             }
             return false;
+
         }
 
        
