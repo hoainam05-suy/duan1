@@ -109,11 +109,25 @@
         }
         
         public function deleteUserById($id) {
-            $sql = "DELETE FROM users WHERE id = :id";
-            $stmt = $this->db->pdo->prepare($sql);
-            $stmt->bindParam(':id', $id);
+            try {
+                // Xóa cart trước để tránh lỗi ràng buộc khóa ngoại
+                $sqlCart = "DELETE FROM cart WHERE user_id = :id";
+                $stmtCart = $this->db->pdo->prepare($sqlCart);
+                $stmtCart->bindParam(':id', $id);
+                $stmtCart->execute();
         
-            return $stmt->execute();
+                // Sau đó xóa user
+                $sql = "DELETE FROM users WHERE id = :id";
+                $stmt = $this->db->pdo->prepare($sql);
+                $stmt->bindParam(':id', $id);
+                
+                return $stmt->execute();
+            } catch (PDOException $e) {
+                // Ghi log hoặc xử lý lỗi nếu cần
+                echo "Lỗi khi xóa người dùng: " . $e->getMessage();
+                return false;
+            }
         }
+        
     }
 ?>

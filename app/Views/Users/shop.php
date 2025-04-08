@@ -57,7 +57,7 @@
                         echo "New Arrival";
                     }
                     ?>
-                    New Arrival
+                    
                 </div>
             </div>
         </div>

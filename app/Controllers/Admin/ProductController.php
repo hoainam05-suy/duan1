@@ -183,5 +183,16 @@ class ProductController{
         }
     }
 
+    public function showProduct(){
+        if (!isset($_GET['id'])) {
+            $_SESSION['message'] = "Vui lòng chọn product cần xem";
+            header("location: " . BASE_URL . "?role=admin&act=all-product");
+            exit;
+        }
+        $productModel = new ProductModel();
+        $product = $productModel->getProductByID();
+        include 'app/Views/Admin/show-product.php';
+    }
+
  
 }

@@ -91,10 +91,10 @@
                                     </div> -->
                                     <div class="tf-product-info-price">
                                         <div class="price-on-sale"><?= number_format($product->price)?> VNĐ</div>
-                                        <div class="compare-at-price"><?= number_format($product->price)?> VNĐ</div>
-                                        <div class="badges-on-sale"><span>
+                                        <!-- <div class="compare-at-price"><?= number_format($product->price)?> VNĐ</div> -->
+                                        <!-- <div class="badges-on-sale"><span>
                                             <?= round((intval($product->price_sale)/intval($product->price))*100,2)?>
-                                        </span>% OFF</div>
+                                        </span>% OFF</div> -->
                                     </div>
                                     <!-- <div class="tf-product-info-liveview">
                                         <div class="liveview-count">20</div>

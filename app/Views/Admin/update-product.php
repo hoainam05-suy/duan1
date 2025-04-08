@@ -137,18 +137,18 @@
                                                 <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*">
                                             </fieldset>
 
-                                            <fieldset class="name mb-24">
+                                            <!-- <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="description">Description</div>
                                                 <textarea id="description" placeholder="Description" name="description" class="flex-grow"><?= $product->description ?></textarea>
-                                            </fieldset>
-                                            
+                                            </fieldset> -->
+<!--                                             
                                             <fieldset class="name mb-24">
                                                 <h4> List image</h4>
                                                 <button type="" class="btn-sm btn btn-primary" id="btnAddImage">Add image</button>
                                                 <div class="block-image">
                                                     
                                                 </div>
-                                            </fieldset>
+                                            </fieldset> -->
                                             <hr>
                                     <div class="bot">
                                         <button class="tf-button w180" type="submit">Chinh sua</button>
