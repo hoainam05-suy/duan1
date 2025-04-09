@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
-                        <a href="" class="logo-header">
+                        <a href="<?=BASE_URL?>" class="logo-header">
                             <img src="assets/Users/images/logo/logo.svg" alt="logo" class="logo">
                         </a>
                     </div>
@@ -17,8 +17,8 @@
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 <li class="menu-item">
-                                    <a href="#" class="item-link">Home<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                    <a href="<?=BASE_URL?>" class="item-link">Home<i class=""></i></a>
+                                    <!-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row-demo">
                                                 <div class="demo-item">
@@ -136,9 +136,9 @@
                                                 <a href="#modalDemo" data-bs-toggle="modal" class="tf-btn btn-xl btn-fill radius-3 animate-hover-btn fw-6"><span>View all demos (34+)</span><i class="icon icon-arrow-right"></i></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
-                                <li class="menu-item">
+                                <!-- <li class="menu-item">
                                     <a href="#" class="item-link">Shop<i class="icon icon-arrow-down"></i></a>
                                     <div class="sub-menu mega-menu">
                                         <div class="container">
@@ -211,10 +211,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </li>
+                                </li> -->
                                 <li class="menu-item">
-                                    <a href="<?= BASE_URL?>?act=shop" class="item-link">Products 2<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                    <a href="<?= BASE_URL?>?act=shop" class="item-link">Products <i class=""></i></a>
+                                    <!-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-2">
@@ -488,7 +488,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="menu-item position-relative">
                                     <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
@@ -590,14 +590,14 @@
                             <?php if(isset($_SESSION['users'])): ?>  
                                 <li class="nav-account dropdown"><a href="#"  class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown"><i class="icon icon-account"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=my-account">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=account-detail">Tài khoản</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=shopping-cart">Giỏ hàng</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=show-order">Đơn hàng</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=logout">Đăng xuất</a></li>
                                     </ul>
                                 </li>     
-                                <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box">0</span></a></li>
-                                <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">0</span></a></li>
+                                <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box"></span></a></li>
+                                <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box"></span></a></li>
                             <?php else: ?>
                                 <li class="nav-account"><a href="<?= BASE_URL ?>?act=login"  class="nav-icon-item"><i class="icon icon-account"></i></a></li>
                             <?php endif; ?>

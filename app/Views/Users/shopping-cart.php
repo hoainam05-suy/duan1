@@ -312,7 +312,7 @@
             if($("#check-agree").is(":checked")) {
                 window.location.replace("<?= BASE_URL ?>?act=check-out")
             }else{
-                alert("Vui lòng đồng í điều khoản")
+                alert("Vui lòng đồng ý điều khoản")
             }
         })
     </script>
