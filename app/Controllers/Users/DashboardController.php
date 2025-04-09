@@ -155,7 +155,9 @@ class DashboardController{
     public function shoppingCart(){
         $cartModel = new CartUserModel();
         $data = $cartModel->showCartModel();
+
         include 'app/Views/Users/shopping-cart.php';      
+
     }
     public function checkout(){
         $userModel = new UserModel2();

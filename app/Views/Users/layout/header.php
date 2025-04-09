@@ -9,7 +9,9 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-6">
+
                         <a href="<?=BASE_URL?>" class="logo-header">
+
                             <img src="assets/Users/images/logo/logo.svg" alt="logo" class="logo">
                         </a>
                     </div>
@@ -17,8 +19,10 @@
                         <nav class="box-navigation text-center">
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 <li class="menu-item">
+
                                     <a href="<?=BASE_URL?>" class="item-link">Home<i class=""></i></a>
                                     <!-- <div class="sub-menu mega-menu">
+
                                         <div class="container">
                                             <div class="row-demo">
                                                 <div class="demo-item">
@@ -138,9 +142,9 @@
                                         </div>
                                     </div> -->
                                 </li>
-                                <!-- <li class="menu-item">
-                                    <a href="#" class="item-link">Shop<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu mega-menu">
+                                <li class="menu-item">
+                                    <a href="#" class="item-link">Shop<i class=""></i></a>
+                                    <!-- <div class="sub-menu mega-menu">
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-lg-2">
@@ -210,8 +214,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li> -->
+                                    </div> -->
+                                </li>
                                 <li class="menu-item">
                                     <a href="<?= BASE_URL?>?act=shop" class="item-link">Products <i class=""></i></a>
                                     <!-- <div class="sub-menu mega-menu">
@@ -491,8 +495,8 @@
                                     </div> -->
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu submenu-default">
+                                    <a href="#" class="item-link">Pages<i class=""></i></a>
+                                    <!-- <div class="sub-menu submenu-default">
                                         <ul class="menu-list">
                                             <li>
                                                 <a href="about-us.html" class="menu-link-text link text_black-2">About us</a>
@@ -566,19 +570,12 @@
                                             <li><a href="404.html" class="menu-link-text link text_black-2 position-relative">404</a></li>
 
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Blog<i class="icon icon-arrow-down"></i></a>
-                                    <div class="sub-menu submenu-default">
-                                        <ul class="menu-list">
-                                            <li><a href="blog-grid.html" class="menu-link-text link text_black-2">Grid layout</a></li>
-                                            <li><a href="blog-sidebar-left.html" class="menu-link-text link text_black-2">Left sidebar</a></li>
-                                            <li><a href="blog-sidebar-right.html" class="menu-link-text link text_black-2">Right sidebar</a></li>
-                                            <li><a href="blog-list.html" class="menu-link-text link text_black-2">Blog list</a></li>
-                                            <li><a href="blog-detail.html" class="menu-link-text link text_black-2">Single Post</a></li>
-                                        </ul>
-                                    </div>
+                                    <a href="#" class="item-link">Blog<i class=""></i></a>
+                                   
+                                    
                                 </li>
                                 <li class="menu-item"><a href="https://themeforest.net/item/ecomus-ultimate-html5-template/53417990?s_rank=3" class="item-link">Buy now</a></li>
                             </ul>
@@ -590,14 +587,14 @@
                             <?php if(isset($_SESSION['users'])): ?>  
                                 <li class="nav-account dropdown"><a href="#"  class="nav-icon-item dropdown-toggle" data-bs-toggle="dropdown"><i class="icon icon-account"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=account-detail">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=my-account">Tài khoản</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=shopping-cart">Giỏ hàng</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=show-order">Đơn hàng</a></li>
                                         <li><a class="dropdown-item" href="<?= BASE_URL ?>?act=logout">Đăng xuất</a></li>
                                     </ul>
                                 </li>     
-                                <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box"></span></a></li>
-                                <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box"></span></a></li>
+                                <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box">0</span></a></li>
+                                <li class="nav-cart"><a href="#shoppingCart" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">0</span></a></li>
                             <?php else: ?>
                                 <li class="nav-account"><a href="<?= BASE_URL ?>?act=login"  class="nav-icon-item"><i class="icon icon-account"></i></a></li>
                             <?php endif; ?>

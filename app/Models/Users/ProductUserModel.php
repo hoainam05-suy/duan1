@@ -93,7 +93,4 @@ public function getComment($productId){
     $result = $stmt->fetchAll();
     return $result;
 }
-
-
-
 }
