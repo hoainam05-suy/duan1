@@ -18,7 +18,7 @@ class LoginModel{
         if ($result && password_verify($password, $result->password)) {
             return $result;
         }
-        return $result;
+        return false;
     }
 
     public function addUsertoDB() {

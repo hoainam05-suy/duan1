@@ -21,7 +21,6 @@ class UserModel2{
     public function accountUpdate(){
 
     }
-
     public function changePassword(){
         if(isset($_SESSION['users'])){
             $user = $this->getCurrentUser();

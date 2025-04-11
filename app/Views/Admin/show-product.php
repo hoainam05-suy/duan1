@@ -98,14 +98,10 @@
                                             </fieldset>
 
                                             <fieldset class="name mb-24">
-                                                <div class="body-title mb-10" for="category_id">Danh muc</div>
-                                                <select name="category_id" id="category_id">
-                                                    <?php foreach ($listCategory as $key => $value): ?>
-                                                        <option value="<?= $value->id ?>"
-                                                            <?php 
-                                                                if($product->category_id == $value->id):?> selected
-                                                        
-                                                            <?php endif?>><?= $value->name ?></option>
+                                                <div class="body-title mb-10" for="category_id">Danh mục</div>
+                                                <select name="category_id" id="category_id" disabled> >
+                                                    <?php foreach ($listCategory as $category) : ?>
+                                                        <option value="<?= $category->id ?>"><?= $category->name ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </fieldset>
