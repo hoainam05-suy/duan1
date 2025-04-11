@@ -190,7 +190,9 @@ class ProductController{
             exit;
         }
         $productModel = new ProductModel();
+        $categoryModel = new CategoryModel();
         $product = $productModel->getProductByID();
+        $listCategory = $categoryModel->getCategories();
         include 'app/Views/Admin/show-product.php';
     }
 
