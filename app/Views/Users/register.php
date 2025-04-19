@@ -53,7 +53,7 @@
                 <div class="form-register-wrap">
                     <div class="flat-title align-items-start gap-0 mb_30 px-0">
                         <h5 class="mb_18">Đăng kí</h5>
-                        <p class="text_black-2">Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails</p>
+                        <!-- <p class="text_black-2">Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails</p> -->
                         <?php 
                             if(isset($_SESSION['message'])) {
                                 echo "<p>". $_SESSION['message'] ."</p>";
@@ -65,7 +65,7 @@
                         <form class="" id="register-form" action="<?= BASE_URL ?>?act=post-register" method="post" accept-charset="utf-8" data-mailchimp="true">
                             <div class="tf-field style-1 mb_15">
                                 <input class="tf-field-input tf-input" placeholder=" " type="text" id="name" name="name">
-                                <label class="tf-field-label fw-4 text_black-2" for="property2">Name</label>
+                                <label class="tf-field-label fw-4 text_black-2" for="property2">Tên</label>
                             </div>
                             <div class="tf-field style-1 mb_15">
                                 <input class="tf-field-input tf-input" placeholder=" " type="email" id="email" name="email">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="tf-field style-1 mb_30">
                                 <input class="tf-field-input tf-input" placeholder=" " type="password" id="password" name="password">
-                                <label class="tf-field-label fw-4 text_black-2" for="property4">Password *</label>
+                                <label class="tf-field-label fw-4 text_black-2" for="property4">Mật khẩu *</label>
                             </div>
                             <div class="mb_20">
                                 <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Đăng kí</button>

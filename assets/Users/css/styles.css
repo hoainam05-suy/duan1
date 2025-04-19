@@ -7893,8 +7893,15 @@ header.header-bg {
   color: var(--white);
   background-color: var(--main);
 }
-
 .discovery-new-item {
+  display: none !important;
+}
+.hide-discovery {
+  display: none !important;
+}
+
+
+/* .discovery-new-item {
   padding: 37px;
   height: 100%;
   border: 1px solid var(--main);
@@ -7903,7 +7910,7 @@ header.header-bg {
   justify-content: end;
   border-radius: 10px;
   gap: 30px;
-}
+} */
 .discovery-new-item a {
   width: 50px;
   height: 50px;

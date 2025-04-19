@@ -137,11 +137,10 @@
                                     </h6>
                                 </div>
                                 <div class="wd-check-payment">
-                                    <div class="fieldset-radio mb_20">
+                                    <!-- <div class="fieldset-radio mb_20">
                                         <input type="radio" name="payment" id="bank" class="tf-check" checked="">
                                         <label for="bank">Direct bank transfer</label>
-                                       
-                                    </div>
+                                    </div> -->
                                     <div class="fieldset-radio mb_20">
                                         <input type="radio" name="payment" id="delivery" class="tf-check">
                                         <label for="delivery">Cash on delivery</label>
@@ -149,7 +148,7 @@
                                     <p class="text_black-2 mb_20">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="privacy-policy.html" class="text-decoration-underline">privacy policy</a>.</p>
                                     <div class="box-checkbox fieldset-radio mb_20">
                                         <input type="checkbox" id="check-agree" class="tf-check">
-                                        <label for="check-agree" class="text_black-2">I have read and agree to the website <a href="terms-conditions.html" class="text-decoration-underline">terms and conditions</a>.</label>
+                                        <label for="check-agree" class="text_black-2">I have read and agree to the website <a class="text-decoration-underline">terms and conditions</a>.</label>
                                     </div>
                                 </div>
                                 <button id="btn-check-out" class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center">Place order</button>

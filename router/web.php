@@ -166,8 +166,6 @@ if($role =="user"){
             break;
         }
 
-
-
 /* tú add product  
 tạo ProductController.php
 */
@@ -202,6 +200,11 @@ tạo ProductController.php
             $productController->deleteProduct();
             break;
         }
+        case 'show-product': {
+            $productController = new ProductController();
+            $productController->showProduct();
+            break;
+        }
 
 // end Tu add product
         case 'all-category': {
@@ -234,6 +237,11 @@ tạo ProductController.php
             $categoryController->deleteCategory();
             break;
         }
+        case 'show-category': {
+            $categoryController = new CategoryController();
+            $categoryController->showCategory();
+            break;
+        }
 
         case 'show-order': {
             $orderController = new OrderController();
@@ -250,12 +258,6 @@ tạo ProductController.php
             $orderController->changeStatus();
             break;
         }
-
-  
-        
-        
-     
-
         default:{
             $homeController = new HomeController();
             $homeController->dashboard();

@@ -63,9 +63,9 @@
                     <span class="text-3 fw-7 text-uppercase title wow fadeInUp" data-wow-delay="0s">SHOP BY CATEGORIES</span>
                </div>
                
-               <div class="row">
+               <!-- <div class="row"> -->
                     <div class="col-xl-9 col-lg-8 col-md-8">
-                        <div dir="ltr" class="swiper tf-sw-collection" data-preview="3" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="false">
+                        <div dir="ltr" class="swiper tf-sw-collection" data-preview="4" data-tablet="2" data-mobile="2" data-space-lg="30" data-space-md="30" data-space="15" data-loop="false" data-auto-play="true">
                             <div class="swiper-wrapper">
                                 <?php foreach($listCategory as $key => $value): ?>
                                 <div class="swiper-slide" lazy="true">
@@ -84,13 +84,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4">
+                    <!-- <div class="col-xl-3 col-lg-4 col-md-4"> -->
+                    <!-- <div class="col-xl-3 col-lg-4 col-md-4 hide-discovery">
+
                         <div class="discovery-new-item">
                             <h5>Discovery all new items</h5>
-                            <a href="shop-collection-list.html"><i class="icon-arrow1-top-left"></i></a>
+                            <a href="<?= BASE_URL?>?act=shop"><i class="icon-arrow1-top-left"></i></a>
                         </div>
-                    </div>
-               </div>
+                    </div> -->
+               <!-- </div> --> 
                
             </div>
         </section>
@@ -99,8 +101,8 @@
         <section class="flat-spacing-5 pt_0 flat-seller">
             <div class="container">
                 <div class="flat-title">
-                    <span class="title wow fadeInUp" data-wow-delay="0s">Hot product</span>
-                    <p class="sub-title wow fadeInUp" data-wow-delay="0s">Shop the Latest Styles: Stay ahead of the curve with our newest arrivals</p>
+                    <span class="title wow fadeInUp" data-wow-delay="0s">Sản phẩm nổi bật</span>
+                    <!-- <p class="sub-title wow fadeInUp" data-wow-delay="0s">Shop the Latest Styles: Stay ahead of the curve with our newest arrivals</p> -->
                 </div>
                 <div class="grid-layout loadmore-item wow fadeInUp" data-wow-delay="0s" data-grid="grid-4">
                     <?php foreach($listProduct as $key => $value): ?>
@@ -110,7 +112,7 @@
                                 <img class="lazyload img-product" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                 <img class="lazyload img-hover" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                             </a>
-                            <div class="list-product-btn">
+                            <!-- <div class="list-product-btn">
                                 <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
                                     <span class="icon icon-bag"></span>
                                     <span class="tooltip">Quick Add</span>
@@ -130,7 +132,7 @@
                                 <span>M</span>
                                 <span>L</span>
                                 <span>XL</span>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="card-product-info">
                             <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="title link"><?= $value->name ?></a>
@@ -173,7 +175,7 @@
          <?php include 'app/Views/Users/layout/testimonial.php' ?>
         <!-- /Testimonial -->
         <!-- brand -->
-        <?php include 'app/Views/Users/layout/brand.php' ?>
+        <!-- <?php include 'app/Views/Users/layout/brand.php' ?> -->
         <!-- /brand -->
         <!-- Shop Gram -->
         <?php include 'app/Views/Users/layout/shopGram.php' ?>

@@ -85,48 +85,14 @@
                             <div class="item"><span class="icon icon-grid-6"></span></div>
                         </li>
                     </ul>
-                    <div class="tf-control-sorting d-flex justify-content-end">
-                        <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
-                            <div class="btn-select">
-                                <span class="text-sort-value">Featured</span>
-                                <span class="icon icon-arrow-down"></span>
-                            </div>
-                            <div class="dropdown-menu">
-                                <div class="select-item active">
-                                    <span class="text-value-item">Featured</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Best selling</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Alphabetically, A-Z</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Alphabetically, Z-A</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Price, low to high</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Price, high to low</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Date, old to new</span>
-                                </div>
-                                <div class="select-item">
-                                    <span class="text-value-item">Date, new to old</span>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    
                 </div>
                 <div class="wrapper-control-shop">
                     <div class="meta-filter-shop"></div>
                     <div class="grid-layout wrapper-shop" data-grid="grid-4">
                         <!-- card product 1 -->
                         <?php foreach ($listProduct as $key => $value): ?>
-                            <div class="card-product" data-price="{{$value->price}}" data-color="orange black white">
+                            <div class="card-product" data-price="{{$value->price}}" >
                                 <div class="card-product-wrapper">
                                     <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="product-img">
                                         <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
@@ -137,7 +103,7 @@
                                 <div class="card-product-info">
                                     <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="title link"><?= $value->name ?></a>
                                     <span class="price"><?= number_format($value->price) ?>VND</span>
-                                    <ul class="list-color-product">
+                                    <!-- <ul class="list-color-product">
                                         <li class="list-color-item color-swatch active">
                                             <span class="tooltip">Orange</span>
                                             <span class="swatch-value bg_orange-3"></span>
@@ -153,7 +119,7 @@
                                             <span class="swatch-value bg_white"></span>
                                             <img class=" ls-is-cached lazyloaded" data-src="images/products/white-1.jpg" src="images/products/white-1.jpg" alt="image-product">
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -223,11 +189,9 @@
                             <ul class="list-categories current-scrollbar mb_36">
                                 <?php foreach ($listCategory as $key => $value): ?>
                                     <li class="cate-item
-                            <?php if (isset($_GET['category_id']) && $_GET['category_id'] == $value->id): ?>
-                                current
+                                <?php if (isset($_GET['category_id']) && $_GET['category_id'] == $value->id): ?>
                                 <?php endif; ?>
                                ">
-
                                         <a href="<?= BASE_URL ?>?act=shop&category_id=<?= $value->id ?>"><span><?= $value->name ?></span></a>
                                     </li>
                                 <?php endforeach; ?>
@@ -235,7 +199,7 @@
                         </div>
                     </div>
                     <div>
-                        <div class="widget-facet">
+                        <!-- <div class="widget-facet">
                             <div class="facet-title" data-bs-target="#availability" data-bs-toggle="collapse" aria-expanded="true" aria-controls="availability">
                                 <span>Availability</span>
                                 <span class="icon icon-arrow-up"></span>
@@ -270,6 +234,26 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div> -->
+                        <div class="widget-facet">
+                            <div class="facet-title" data-bs-target="#availability" data-bs-toggle="collapse" aria-expanded="true" aria-controls="availability">
+                                <span>Availability</span>
+                                <span class="icon icon-arrow-up"></span>
+                            </div>
+                            <div id="availability" class="collapse show">
+                                <ul class="tf-filter-group current-scrollbar mb_36">
+                                    <li class="list-item d-flex gap-12 align-items-center">
+                                        <a href="<?= BASE_URL ?>?act=shop&instock=true" class="label">
+                                            <span>In stock</span>&nbsp;<span>(<?= $stock[0]->instock ?>)</span>
+                                        </a>
+                                    </li>
+                                    <li class="list-item d-flex gap-12 align-items-center">
+                                        <a href="<?= BASE_URL ?>?act=shop&outstock=true" class="label">
+                                            <span>Out of stock</span>&nbsp;<span>(<?= $stock[1]->outstock ?>)</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="widget-facet">
                             <div class="facet-title" data-bs-target="#price" data-bs-toggle="collapse" aria-expanded="true" aria-controls="price">
@@ -293,7 +277,7 @@
 
                             </div>
                         </div>
-                        <div class="widget-facet">
+                        <!-- <div class="widget-facet">
                             <div class="facet-title" data-bs-target="#brand" data-bs-toggle="collapse" aria-expanded="true" aria-controls="brand">
                                 <span>Brand</span>
                                 <span class="icon icon-arrow-up"></span>
@@ -430,7 +414,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 

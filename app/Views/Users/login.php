@@ -57,7 +57,7 @@
             <div class="container">
                 <div class="tf-grid-layout lg-col-2 tf-login-wrap">
                     <div class="tf-login-form">
-                        <div id="recover">
+                        <!-- <div id="recover">
                             <h5 class="mb_24">Reset your password</h5>
                             <p class="mb_30">We will send you an email to reset your password</p>
                             <div>
@@ -74,7 +74,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                         <div id="login">
                             <h5 class="mb_36">Log in</h5>
                             <?php if(isset($_SESSION['error'])) {
@@ -84,6 +84,10 @@
                             if(isset($_SESSION['message'])) {
                                 echo "<p>". $_SESSION['message'] ."</p>";
                                 unset($_SESSION['message']);
+                            }
+                            if (isset($_SESSION['admin'])) {
+                                header("Location: " . BASE_URL . "?role=admin&act=home");
+                                exit;
                             }
                             ?>
                             <div>
@@ -96,9 +100,9 @@
                                         <input class="tf-field-input tf-input" placeholder="" type="password" id="property4" name="password">
                                         <label class="tf-field-label fw-4 text_black-2" for="property4">Password *</label>
                                     </div>
-                                    <div class="mb_20">
+                                    <!-- <div class="mb_20">
                                         <a href="#recover" class="tf-btn btn-line">Forgot your password?</a>
-                                    </div>
+                                    </div> -->
                                     <div class="">
                                         <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Log in</button>
                                     </div>

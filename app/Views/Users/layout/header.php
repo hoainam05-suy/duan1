@@ -18,23 +18,17 @@
                             <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
                                 <li class="menu-item">
                                     <a href="<?=BASE_URL?>" class="item-link">Home<i class=""></i></a>
-                                 
-                                </li>
-                               
+                                </li>                               
                                 <li class="menu-item">
-                                    <a href="<?= BASE_URL?>?act=shop" class="item-link">Products <i class=""></i></a>
-                                    
+                                    <a href="<?= BASE_URL?>?act=shop" class="item-link">Products <i class=""></i></a>                                    
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Pages<i class=""></i></a>
-                                    
+                                    <a href="" class="item-link">Pages<i class=""></i></a>                               
                                 </li>
                                 <li class="menu-item position-relative">
-                                    <a href="#" class="item-link">Blog<i class=""></i></a>
-                                   
-                                    
+                                    <a href="" class="item-link">Blog<i class=""></i></a>       
                                 </li>
-                                <li class="menu-item"><a href="<?= BASE_URL?>?act=about-us" class="item-link">About us</a></li>
+                                <li class="menu-item"><a href="" class="item-link">About us</a></li>
                             </ul>
                         </nav>
                     </div>

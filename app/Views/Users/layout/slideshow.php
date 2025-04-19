@@ -8,7 +8,7 @@
                                 <div class="container">
                                     <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
                                     <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                                    <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                                    <a  class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -20,7 +20,7 @@
                                 <div class="container">
                                     <h1 class="fade-item fade-item-1">Simple <br class="md-hidden">Style</h1>
                                     <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                                    <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                                    <a  class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                                 <div class="container">
                                     <h1 class="fade-item fade-item-1">Glamorous<br>Glam</h1>
                                     <p class="fade-item fade-item-2">From casual to formal, we've got you covered</p>
-                                    <a href="shop-default.html" class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
+                                    <a  class="fade-item fade-item-3 tf-btn btn-fill animate-hover-btn btn-xl radius-3"><span>Shop collection</span><i class="icon icon-arrow-right"></i></a>
                                 </div>
                             </div>
                             
