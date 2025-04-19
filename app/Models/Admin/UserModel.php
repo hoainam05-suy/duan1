@@ -38,7 +38,6 @@
             $stmt->bindParam(':created_at', $now);
             $stmt->bindParam(':updated_at', $now);
             $stmt->bindParam(':role', $role);
-
             return $stmt->execute();
         }
 

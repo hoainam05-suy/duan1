@@ -125,5 +125,10 @@ class CategoryController {
         header("location: " . BASE_URL . "?role=admin&act=all-category");
         exit;
     }
+    function showCategory() {
+        $categoryModel = new CategoryModel();
+        $listCategory = $categoryModel->getCategories(); 
+        include "app/Views/Admin/categories.php";
+    }
     
 }

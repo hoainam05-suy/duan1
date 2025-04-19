@@ -7,13 +7,13 @@ class UserModel2{
         $this->db = new Database();
     }
     public function getCurrentUser(){
-        if(isset($_SESSION['users'])){
-            $sql = "select * from users where id = :id";
+        if (isset($_SESSION['users'])){
+            $sql = "SELECT * FROM users WHERE id = :id";
             $stmt = $this->db->pdo->prepare($sql);
             $stmt->bindParam(':id', $_SESSION['users']['id']);
             $stmt->execute();
-            return $stmt->fetch();
-        }else{
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        }else {
             return false;
         }
     }
@@ -21,7 +21,6 @@ class UserModel2{
     public function accountUpdate(){
 
     }
-
     public function changePassword(){
         if(isset($_SESSION['users'])){
             $user = $this->getCurrentUser();

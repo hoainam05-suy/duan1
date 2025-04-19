@@ -144,7 +144,10 @@
                                                 <div class="body-title mb-10" for="image_main">Image Main</div>
                                                 <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image/*">
                                             </fieldset>
-                                            
+                                            <fieldset class="name mb-24">
+                                                <div class="body-title mb-10" for="description">Description</div>
+                                                <textarea id="description" placeholder="Description" name="description" class="flex-grow"></textarea>
+                                            </fieldset>
                                             <!-- <fieldset class="name mb-24">
                                                 <h4> List image</h4>
                                                 <button type="" class="btn-sm btn btn-primary" id="btnAddImage">Add image</button>

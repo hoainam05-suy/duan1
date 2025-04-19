@@ -37,13 +37,17 @@ public function getProductStock(){
     return [$inStock,$outStock];
 }
 
-public function getDataShopName(){
+
+
+public function getDataShopName() {
     $productName = $_GET['product-name'];
-    $sql = "SELECT * FROM `products` WHERE name LIKE '%$productName%'";
+    $sql = "SELECT * FROM `products` WHERE name LIKE :name";
     $query = $this->db->pdo->prepare($sql);
-    $result=$query->fetchAll();
+    $query->execute([':name' => "%$productName%"]);
+    $result = $query->fetchAll(PDO::FETCH_OBJ);
     return $result;
 }
+
 public function getProductById(){
     if(isset($_GET['product_id'])){
         $sql = "SELECT * FROM `products` WHERE id = :id";
@@ -89,7 +93,4 @@ public function getComment($productId){
     $result = $stmt->fetchAll();
     return $result;
 }
-
-
-
 }

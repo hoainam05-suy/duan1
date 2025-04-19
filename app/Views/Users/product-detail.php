@@ -188,7 +188,7 @@
                                             ><span>Add to cart -&nbsp;</span><span class="tf-qty-price total-price">
                                                 <?= $product->price_sale != null ? number_format($product->price) : number_format($product->price) ?> VNĐ
                                                 </span></a>
-                                            <a href="javascript:void(0);" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
+                                            <!-- <a href="javascript:void(0);" class="tf-product-btn-wishlist hover-tooltip box-icon bg_white wishlist btn-icon-action">
                                                 <span class="icon icon-heart"></span>
                                                 <span class="tooltip">Add to Wishlist</span>
                                                 <span class="icon icon-delete"></span>
@@ -197,14 +197,14 @@
                                                 <span class="icon icon-compare"></span>
                                                 <span class="tooltip">Add to Compare</span>
                                                 <span class="icon icon-check"></span>
-                                            </a>
+                                            </a> -->
                                             <!-- <div class="w-100">
                                                 <a href="#" class="btns-full">Buy with <img src="images/payments/paypal.png" alt=""></a>
                                                 <a href="#" class="payment-more-option">More payment options</a>
                                             </div> -->
                                         </form>
                                     </div>
-                                    <div class="tf-pickup-availability mt-3">
+                                    <!-- <div class="tf-pickup-availability mt-3">
                                         <div>
                                             <svg width="18" height="18" viewBox="0 0 18 18" class="mt_3">
                                                 <path d="M7.6 13.2L14.65 6.15L13.25 4.75L7.6 10.4L4.75 7.55L3.35 8.95L7.6 13.2ZM0 18V0H18V18H0ZM2 16H16V2H2V16Z" fill="#428445"></path>
@@ -216,7 +216,7 @@
                                                 Check availability at other stores
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="tf-product-info-extra-link">
                                         <a href="#compare_color" data-bs-toggle="modal" class="tf-product-extra-icon">
                                             <div class="icon">
@@ -328,7 +328,7 @@
                                 </div>
                                 <div class="tf-mini-cart-view-checkout">
                                     <a href="<?= BASE_URL ?>?act=shopping-cart" class="tf-btn btn-outline radius-3 link w-100 justify-content-center">View cart</a>
-                                    <a href="#" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check out</span></a>
+                                    <a href="<?= BASE_URL ?>?act=check-out" class="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"><span>Check out</span></a>
                                 </div>
                             </div>
                         </div>
@@ -823,6 +823,9 @@
         btnAddToCart.addEventListener("click", function(){
             let productId = "<?= $_GET['product_id'] ?>"
               let quantity = document.querySelector(".quantity-product").value
+
+              console.log("productId:", productId);  // In ra productId
+              console.log("quantity:", quantity);    // In ra quantity
             
               let fromData = new FormData();
               fromData.append('productId', productId)
@@ -843,7 +846,7 @@
         })
             const exampleModal = document.getElementById('shoppingCart')
             exampleModal.addEventListener('show.bs.modal', event => {
-
+console.log('shoppingCart');
                 fetch('<?= BASE_URL ?>?act=show-to-cart')
 
                 .then(response => response.json())
