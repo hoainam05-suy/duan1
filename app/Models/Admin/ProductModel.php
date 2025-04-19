@@ -169,6 +169,12 @@ class ProductModel
             return [];
         }
     }
+    public function countAll() {
+        $sql = "SELECT COUNT(*) FROM products"; // hoặc từ bảng phù hợp
+        return $this->db->pdo->query($sql)->fetchColumn();
+    }
+    
+  
 
     
 }

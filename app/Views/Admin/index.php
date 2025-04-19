@@ -3,43 +3,29 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <!--<![endif]-->
-
-
-<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:29 GMT -->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title>Ecomus - Ultimate Admin Dashboard HTML</title>
-
     <meta name="author" content="themesflat.com">
-
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="assets/Admin/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="assets/Admin/css/animation.css">
     <link rel="stylesheet" type="text/css" href="assets/Admin/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="assets/Admin/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="assets/Admin/css/styles.css">
-
-
-
     <!-- Font -->
     <link rel="stylesheet" href="assets/Admin/font/fonts.css">
-
     <!-- Icon -->
     <link rel="stylesheet" href="assets/Admin/icon/style.css">
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/Admin/images/favicon.png">
     <link rel="apple-touch-icon-precomposed" href="assets/Admin/images/favicon.png">
-
 </head>
-
 <body>
-
     <!-- #wrapper -->
     <div id="wrapper">
         <!-- #page -->
@@ -53,30 +39,51 @@
                     </div>
                 </div>
                 <!-- /preload -->
-                <!-- section-menu-left -->
+
+                <!-- section-menu-left (giữ nguyên phần sidebar) -->
                 <?php include 'app/Views/Admin/layouts/sidebar.php' ?>
-                <!-- /section-menu-left -->
+
                 <!-- section-content-right -->
                 <div class="section-content-right">
-                    <!-- header-dashboard -->
+                    <!-- header-dashboard (giữ nguyên phần header) -->
                     <?php include 'app/Views/Admin/layouts/header.php' ?>
-                    <!-- /header-dashboard -->
+
                     <!-- main-content -->
                     <div class="main-content">
-                        <!-- main-content-wrap -->
+                        <!-- main-content-inner -->
                         <div class="main-content-inner">
-                            <!-- main-content-wrap -->
+                            <!-- main-content-wrap mới thay dashboard -->
                             <div class="main-content-wrap">
-                                <div class="wg-box">
-                            Dashboard
+                                <div class="row">
+                                    <!-- Tổng sản phẩm -->
+                                    <div class="col-md-4">
+                                        <div class="wg-box">
+                                            <h3>Tổng sản phẩm</h3>
+                                            <p><?= isset($totalProducts) ? $totalProducts : 0 ?></p>
+                                        </div>
+                                    </div>
+                                    <!-- Tổng người dùng -->
+                                    <div class="col-md-4">
+                                        <div class="wg-box">
+                                            <h3>Tổng người dùng</h3>
+                                            <p><?= isset($totalUsers) ? $totalUsers : 0 ?></p>
+                                        </div>
+                                    </div>
+                                    <!-- Tổng đơn hàng -->
+                                    <div class="col-md-4">
+                                        <div class="wg-box">
+                                            <h3>Tổng đơn hàng</h3>
+                                            <p><?= isset($totalOrders) ? $totalOrders : 0 ?></p>
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- Bạn có thể bổ sung thêm nội dung dashboard khác tại đây -->
                             </div>
-                            <!-- /main-content-wrap -->
                         </div>
-                        <!-- /main-content-wrap -->
-                        <!-- bottom-page -->
+                        <!-- /main-content-inner -->
+
+                        <!-- bottom-page (giữ nguyên phần footer) -->
                         <?php include 'app/Views/Admin/layouts/footer.php' ?>
-                        <!-- /bottom-page -->
                     </div>
                     <!-- /main-content -->
                 </div>
@@ -111,9 +118,5 @@
     <script src="assets/Admin/js/switcher.js"></script>
     <script defer src="assets/Admin/js/theme-settings.js"></script>
     <script src="assets/Admin/js/main.js"></script>
-
 </body>
-
-
-<!-- Mirrored from themesflat.co/html/ecomus/admin-ecomus/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2024 14:58:54 GMT -->
 </html>

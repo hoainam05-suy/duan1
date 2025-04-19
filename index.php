@@ -16,6 +16,8 @@ include 'app/Models/Users/LoginModel.php';
 include 'app/Models/Users/CartUserModel.php';
 include 'app/Models/Users/OrderUserModel.php';
 //controller admin
+include 'app/Controllers/Admin/AdminDashboardController.php';
+
 include 'app/Controllers/Admin/ControllerAdmin.php';
 include 'app/Controllers/Admin/HomeController.php';
 include 'app/Controllers/Admin/LoginController.php';

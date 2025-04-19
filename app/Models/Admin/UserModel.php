@@ -128,6 +128,12 @@
                 return false;
             }
         }
+        public function countAll() {
+            $sql = "SELECT COUNT(*) FROM users"; // hoặc từ bảng phù hợp
+            return $this->db->pdo->query($sql)->fetchColumn();
+        }
+        
+        
         
     }
 ?>

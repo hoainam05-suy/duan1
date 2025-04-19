@@ -32,5 +32,12 @@
             $stmt->bindParam(':order_id', $order_id);
             return $stmt->execute();
         }
+        public function countAll() {
+            $sql = "SELECT COUNT(*) FROM `order`";
+            return $this->db->pdo->query($sql)->fetchColumn();
+        }
+        
+        
+        
     }
 ?>

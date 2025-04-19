@@ -251,6 +251,11 @@ tạo ProductController.php
             break;
         }
 
+  
+        
+        
+     
+
         default:{
             $homeController = new HomeController();
             $homeController->dashboard();
