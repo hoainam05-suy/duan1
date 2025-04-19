@@ -69,36 +69,34 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
+                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                    <h3>All Users</h3>
+                                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                        <li>
+                                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#"><div class="text-tiny">Users</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <div class="text-tiny">All Users</div>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="wg-box">
                                     <?php if (isset($_SESSION['massage'])) {
                                         echo "<p>" . $_SESSION['massage'] . "</p>";
                                         unset($_SESSION['massage']);
                                     } ?>
-                                    <div class="title-box">
-                                        Danh sach user
-                                    </div>
+                                    
                                     <div class="flex items-center justify-between gap10 flex-wrap">
-                                        <div class="wg-filter flex-grow">
-                                            <div class="show">
-                                                <div class="text-tiny">Showing</div>
-                                                <div class="select">
-                                                    <select class="">
-                                                        <option>10</option>
-                                                        <option>20</option>
-                                                        <option>30</option>
-                                                    </select>
-                                                </div>
-                                                <div class="text-tiny">entries</div>
-                                            </div>
-                                            <form class="form-search">
-                                                <fieldset class="name">
-                                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
-                                                </fieldset>
-                                                <div class="button-submit">
-                                                    <button class="" type="submit"><i class="icon-search"></i></button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                       
                                         <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-user"><i class="icon-plus"></i>Add new</a>
                                     </div>
                                     <div class="wg-table table-product-list">

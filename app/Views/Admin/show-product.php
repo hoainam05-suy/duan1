@@ -87,7 +87,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- add-new-user -->
+                                <!-- show product -->
                                 <form action="" class="form-add-new-user form-style-2" method="post" >
                                     <div class="wg-box">
                                         
@@ -124,7 +124,7 @@
                                             <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="image_main">Image Main</div>
                                                 <img src="<?= $product->image_main ?>" alt="" srcset="" width="50px">
-                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*" readonly>
+                                                <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*"  disable>
                                             </fieldset>
 
                                             <fieldset class="name mb-24">

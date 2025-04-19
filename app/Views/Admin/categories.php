@@ -67,16 +67,34 @@
                         <div class="main-content-inner">
                             <!-- main-content-wrap -->
                             <div class="main-content-wrap">
+                                <div class="flex items-center flex-wrap justify-between gap20 mb-30">
+                                    <h3>All Category</h3>
+                                    <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
+                                        <li>
+                                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <a href="#"><div class="text-tiny">Category</div></a>
+                                        </li>
+                                        <li>
+                                            <i class="icon-chevron-right"></i>
+                                        </li>
+                                        <li>
+                                            <div class="text-tiny">All Category</div>
+                                        </li>
+                                    </ul>
+                                </div>
                             <div class="wg-box">
                                         <?php if(isset($_SESSION['massage'])){
                                             echo "<p>".$_SESSION['massage']."</p>";
                                             unset($_SESSION['massage']);
                                         } ?>
-                                    <div class="title-box">
-                                        Danh sach danh muc
-                                    </div>
+                                    
                                     <div class="flex items-center justify-between gap10 flex-wrap">
-                                        <div class="wg-filter flex-grow">
+                                        <!-- <div class="wg-filter flex-grow">
                                             <div class="show">
                                                 <div class="text-tiny">Showing</div>
                                                 <div class="select">
@@ -96,31 +114,29 @@
                                                     <button class="" type="submit"><i class="icon-search"></i></button>
                                                 </div>
                                             </form>
-                                        </div>
+                                        </div> -->
                                         <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-category"><i class="icon-plus"></i>Add category</a>
                                     </div>
                                     <div class="wg-table table-category-list">
-                                        <ul class="table-title flex gap20 mb-14">
-                                            <li>
-                                                <div class="body-title">STT</div>
-                                            </li>    
-                                            <li>
-                                                <div class="body-title">Name</div>
-                                            </li>
-                                            
-                                            <li>
-                                                <div class="body-title">Action</div>
-                                            </li>
-                                           
-                                        </ul>
+                                    <ul class="table-title flex gap20 mb-14">
+                                        <li>
+                                            <div class="body-title" style="width: 80px;">STT</div>
+                                        </li>
+                                        <li>
+                                            <div class="body-title" style="width: 300px;">Name</div>
+                                        </li>
+                                        <li>
+                                            <div class="body-title" style="width: 200px;">Action</div>
+                                        </li>
+                                    </ul>
                                         <ul class="flex flex-column">
                                             <?php foreach($listCategory as $key => $value):  ?>
                                                 <li class="wg-product item-row gap20">
-                                                    <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
-                                                    <div class="list-icon-function">
+                                                    <div class="body-text text-main-dark mt-4" style="width: 80px;"><?= $key+ 1?></div>
+                                                    <div class="body-text text-main-dark mt-4" style="width: 300px;"><?= $value->name?></div>
+                                                    <div class="list-icon-function" style="width: 200px;"   >
                                                         <div class="item eye">
-                                                        <a href="<?= BASE_URL ?>?role=admin&act=show-category&id=<?= $value->id ?>">
+                                                        <!-- <a href="<?= BASE_URL ?>?role=admin&act=show-category&id=<?= $value->id ?>"> -->
                                                             <i class="icon-eye"></i>
                                                         </a>
                                                         </div>
@@ -144,26 +160,7 @@
                                     
                                     <div class="divider"></div>
                                     
-                                    <div class="flex items-center justify-between flex-wrap gap10">
-                                        <div class="text-tiny">Showing 10 entries</div>
-                                        <ul class="wg-pagination">
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-left"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">1</a>
-                                            </li>
-                                            <li class="active">
-                                                <a href="#">2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">3</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                   
                                 </div>
                                
                             </div>

@@ -148,13 +148,7 @@
                                                 <div class="body-title mb-10" for="description">Description</div>
                                                 <textarea id="description" placeholder="Description" name="description" class="flex-grow"></textarea>
                                             </fieldset>
-                                            <!-- <fieldset class="name mb-24">
-                                                <h4> List image</h4>
-                                                <button type="" class="btn-sm btn btn-primary" id="btnAddImage">Add image</button>
-                                                <div class="block-image">
-                                                    
-                                                </div>
-                                            </fieldset> -->
+                  
                                             <hr>
                                     <div class="bot">
                                         <button class="tf-button w180" type="submit">Them moi</button>

@@ -17,6 +17,5 @@
             $order_detail = $orderModel->changeStatusModel();
             header("Location: " . BASE_URL . "?role=admin&act=show-order");
         }
-        
     }
  ?>

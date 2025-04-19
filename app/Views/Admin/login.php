@@ -73,19 +73,10 @@
                                     <i class="icon-eye-off hide"></i>
                                 </span>
                             </fieldset>
-                            <div class="flex justify-between items-center">
-                                <div class="flex gap10">
-                                    <input class="tf-check" type="checkbox" id="signed">
-                                    <label class="body-text text-white" for="signed">Keep me signed in</label>
-                                </div>
-                                <a href="#" class="body-text tf-color">Forgot password?</a>
-                            </div>
+                           
                             <button type="submit" class="tf-button w-full">Login</button>
                         </form>
-                        <div class="bottom body-text text-center text-center text-white w-full">
-                            Not regster yet?
-                            <a href="sign-up.html" class="body-text tf-color">Register Now</a>
-                        </div>
+                      
                     </div>
                 </div>
                 <div class="right">

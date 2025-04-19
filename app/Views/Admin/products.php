@@ -71,7 +71,7 @@
                                     <h3>All Products</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
-                                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                            <a><div class="text-tiny">Dashboard</div></a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
@@ -95,38 +95,18 @@
                                         } ?>
                                   
                                     <div class="flex items-center justify-between gap10 flex-wrap">
-                                        <div class="wg-filter flex-grow">
-                                            <div class="show">
-                                                <div class="text-tiny">Showing</div>
-                                                <div class="select">
-                                                    <select class="">
-                                                        <option>10</option>
-                                                        <option>20</option>
-                                                        <option>30</option>
-                                                    </select>
-                                                </div>
-                                                <div class="text-tiny">entries</div>
-                                            </div>
-                                            <form class="form-search">
-                                                <fieldset class="name">
-                                                    <input type="text" placeholder="Search here..." class="" name="name" tabindex="2" value="" aria-required="true" required="">
-                                                </fieldset>
-                                                <div class="button-submit">
-                                                    <button class="" type="submit"><i class="icon-search"></i></button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                     
                                         <a class="tf-button style-1 w208" href="<?= BASE_URL ?>?role=admin&act=add-product"><i class="icon-plus"></i>Add product</a>
                                     </div>
                                     <div class="wg-table table-product-list">
                                         <ul class="table-title flex gap20 mb-14">
-                                            <li>
+                                            <li style="width: 50px;">
                                                 <div class="body-title">STT</div>
-                                            </li>    
-                                            <li>
+                                            </li>
+                                            <li style="width: 200px;">
                                                 <div class="body-title">Name</div>
                                             </li>
-                                            <li>
+                                            <li style="width: 100px;">
                                                 <div class="body-title">Image</div>
                                             </li>
                                             <li>
@@ -135,19 +115,19 @@
                                             <li>
                                                 <div class="body-title">Gia</div>
                                             </li>
-                                            <li>
+                                            <li style="width: 90px;">
                                                 <div class="body-title">So luong</div>
                                             </li>
-                                            <li>
+                                            <li >
                                                 <div class="body-title">Action</div>
                                             </li>
                                         </ul>
                                         <ul class="flex flex-column">
                                             <?php foreach($listProduct as $key => $value):  ?>
                                                 <li class="wg-product item-row gap20">
-                                                    <div class="body-text text-main-dark mt-4"><?= $key+ 1?></div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->name?></div>
-                                                    <div class="body-text text-main-dark mt-4">
+                                                    <div class="body-text text-main-dark mt-4" style="width: 50px;"><?= $key+ 1?></div>
+                                                    <div class="body-text text-main-dark mt-4" style="width: 250px;"><?= $value->name?></div>
+                                                    <div class="body-text text-main-dark mt-4" >
                                                         <img src="<?= $value->image_main?>" alt="" srcset="" width="50px">
                                                     </div>
 
@@ -166,7 +146,7 @@
                                                             echo isset($value->price_sale) ? number_format($value->price_sale, 0, ',', '.') . ' VNĐ' : 'Không có giá';
                                                         }  ?> 
                                                     </div>
-                                                    <div class="body-text text-main-dark mt-4"><?= $value->stock ?></div>
+                                                    <div class="body-text text-main-dark mt-4" style="width: 90px;" ><?= $value->stock ?></div>
 
                                                     <div class="list-icon-function">
                                                         <div class="item eye">
@@ -190,26 +170,7 @@
                                         </ul>
                                     </div>
                                     <div class="divider"></div>
-                                    <div class="flex items-center justify-between flex-wrap gap10">
-                                        <div class="text-tiny">Showing 10 entries</div>
-                                        <ul class="wg-pagination">
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-left"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="#">1</a>
-                                            </li>
-                                            <li class="active">
-                                                <a href="#">2</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">3</a>
-                                            </li>
-                                            <li>
-                                                <a href="#"><i class="icon-chevron-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                    
                                 </div>
                                 <!-- /product-list -->
                             </div>

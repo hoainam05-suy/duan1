@@ -5,8 +5,6 @@
         }
         
         public function postlogin() {
-            // $_POST['email'];
-            // $_POST['password'];
             $homeModel = new HomeModel();
             $dataUsers = $homeModel->checkLogin();
             if ($dataUsers) {
@@ -17,14 +15,12 @@
                 ];
                 header("location: ".BASE_URL."?role=admin&act=home" );
                 exit;
-            }else{
-    
-            $_SESSION['error'] = 'Email hoac Password khong dung';
-            header("location: ".BASE_URL."?role=admin&act=login" );
-            exit;
+            } else {
+                $_SESSION['error'] = 'Email hoac Password khong dung';
+                header("location: ".BASE_URL."?role=admin&act=login" );
+                exit;
             }
         }
-
         public function logout() {
             if (isset($_SESSION['users'])){
                 unset($_SESSION['users']);

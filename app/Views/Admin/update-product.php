@@ -71,7 +71,7 @@
                                     <h3>Update Product</h3>
                                     <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                                         <li>
-                                            <a href="index.html"><div class="text-tiny">Dashboard</div></a>
+                                            <a><div class="text-tiny">Dashboard</div></a>
                                         </li>
                                         <li>
                                             <i class="icon-chevron-right"></i>
@@ -137,12 +137,12 @@
                                                 <input class="flex-grow" type="file" id="image_main" placeholder="Image Main" name="image_main"  accept="image./*">
                                             </fieldset>
 
-                                            <!-- <fieldset class="name mb-24">
+                                            <fieldset class="name mb-24">
                                                 <div class="body-title mb-10" for="description">Description</div>
                                                 <textarea id="description" placeholder="Description" name="description" class="flex-grow"><?= $product->description ?></textarea>
-                                            </fieldset> -->
-<!--                                             
-                                            <fieldset class="name mb-24">
+                                            </fieldset>
+                           
+                                            <!--<fieldset class="name mb-24">
                                                 <h4> List image</h4>
                                                 <button type="" class="btn-sm btn btn-primary" id="btnAddImage">Add image</button>
                                                 <div class="block-image">

@@ -132,21 +132,7 @@
                                         <img class="img-product ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>" alt="image-product">
                                         <img class="img-hover ls-is-cached lazyloaded" data-src="<?= $value->image_main ?>" src="<?= $value->image_main ?>">
                                     </a>
-                                    <!-- <div class="list-product-btn absolute-2">
-                                        <a href="#quick_add" data-bs-toggle="modal" class="box-icon bg_white quick-add tf-btn-loading">
-                                            <span class="icon icon-bag"></span>
-                                            <span class="tooltip">Quick Add</span>
-                                        </a>
-                                        <a href="javascript:void(0);" class="box-icon bg_white wishlist btn-icon-action">
-                                            <span class="icon icon-heart"></span>
-                                            <span class="tooltip">Add to Wishlist</span>
-                                            <span class="icon icon-delete"></span>
-                                        </a>
-                                        <a href="#quick_view" data-bs-toggle="modal" class="box-icon bg_white quickview tf-btn-loading">
-                                            <span class="icon icon-view"></span>
-                                            <span class="tooltip">Quick View</span>
-                                        </a>
-                                    </div> -->
+                               
                                 </div>
                                 <div class="card-product-info">
                                     <a href="<?= BASE_URL ?>?act=product-detail&product_id=<?= $value->id ?>" class="title link"><?= $value->name ?></a>

@@ -34,8 +34,21 @@
 
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="assets/Admin/images/favicon.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/Admin/images/favicon.png">
+    <style>
+    .grid-row {
+        display: grid;
+        grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr 2fr 2fr;
+        align-items: center;
+        gap: 12px;
+    }
 
+    .table-title li,
+    .item-row > div {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 </head>
 
 <body class="body">
