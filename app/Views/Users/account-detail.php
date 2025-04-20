@@ -70,7 +70,7 @@
                                         <label class="tf-field-label fw-4 text_black-2" for="property2">Name</label>
                                     </div>
                                     <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="email" id="property3" name="email" value="<?= $user->email ?>">
+                                        <input class="tf-field-input tf-input" placeholder=" " type="email" id="property3" name="email" value="<?= $user->email ?>"disabled>
                                         <label class="tf-field-label fw-4 text_black-2" for="property3">Email</label>
                                     </div>
 
