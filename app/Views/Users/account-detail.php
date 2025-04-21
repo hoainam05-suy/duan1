@@ -67,48 +67,53 @@
                                 <form class="" id="form-password-change" action="<?= BASE_URL ?>?act=update-account" method="post" enctype="multipart/form-data">
                                     <div class="tf-field style-1 mb_15">
                                         <input class="tf-field-input tf-input" placeholder=" " type="text" id="name" name="name" value="<?= $user->name ?>">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property2">Name</label>
+                                        <label class="tf-field-label fw-4 text_black-2" for="name">Name</label>
                                     </div>
+
                                     <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="email" id="property3" name="email" value="<?= $user->email ?>"disabled>
+                                        <input class="tf-field-input tf-input" placeholder=" " type="email" id="property3" name="email" value="<?= $user->email ?>" readonly>
                                         <label class="tf-field-label fw-4 text_black-2" for="property3">Email</label>
                                     </div>
 
                                     <div class="tf-field style-1 mb_15">
                                         <input class="tf-field-input tf-input" placeholder=" " type="text" id="address" name="address" value="<?= $user->address ?>">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property4">Address</label>
+                                        <label class="tf-field-label fw-4 text_black-2" for="address">Address</label>
                                     </div>
 
                                     <div class="tf-field style-1 mb_15">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="number" id="property3" name="phone" value="<?= $user->phone ?>">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property5">Phone</label>
+                                        <input class="tf-field-input tf-input" placeholder=" " type="number" id="property4" name="phone" value="<?= $user->phone ?>">
+                                        <label class="tf-field-label fw-4 text_black-2" for="property4">Phone</label>
                                     </div>
 
                                     <div class="tf-field style-1 mb_15">
-                                    <img src="<?= $user->image ?>" alt="" srcset="" width="100px"><br>
+                                        <img src="<?= $user->image ?>" alt="Avatar" width="100px"><br>
                                         <input class="tf-field-input tf-input" placeholder=" " type="file" id="image" name="image" accept="image/*">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property6">Image</label>
+                                        <label class="tf-field-label fw-4 text_black-2" for="image">Image</label>
                                     </div>
-
 
                                     <h6 class="mb_20">Password Change</h6>
+
                                     <div class="tf-field style-1 mb_30">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="property4" name="curent-pasword">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property7">Current password</label>
+                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="current-password" name="current-password">
+                                        <label class="tf-field-label fw-4 text_black-2" for="current-password">Current password</label>
                                     </div>
+
                                     <div class="tf-field style-1 mb_30">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="property5" name="new-password">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property8">New password</label>
+                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="new-password" name="new-password">
+                                        <label class="tf-field-label fw-4 text_black-2" for="new-password">New password</label>
                                     </div>
+
                                     <div class="tf-field style-1 mb_30">
-                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="property6" name="confirm-password">
-                                        <label class="tf-field-label fw-4 text_black-2" for="property9">Confirm password</label>
+                                        <input class="tf-field-input tf-input" placeholder=" " type="password" id="confirm-password" name="confirm-password">
+                                        <label class="tf-field-label fw-4 text_black-2" for="confirm-password">Confirm password</label>
                                     </div>
+
                                     <div class="mb_20">
                                         <button type="submit" class="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center">Save Changes</button>
                                     </div>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>

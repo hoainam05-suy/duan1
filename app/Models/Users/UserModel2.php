@@ -19,7 +19,7 @@ class UserModel2{
     }
 
     public function accountUpdate(){
-
+        $this->changePassword(); // xử lý đầy đủ mọi thứ và set $_SESSION['message']
     }
     public function changePassword(){
         if(isset($_SESSION['users'])){
@@ -38,19 +38,15 @@ class UserModel2{
     }
 
     public function updateCurrentUser($destPath) {
-        // Lấy thông tin từ POST
         $name = $_POST['name'];
-        $email = $_POST['email'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
-        $image = $destPath; // Sử dụng ảnh mới nếu có
+        $image = $destPath;
         $now = date('Y-m-d H:i:s');
     
-        // Câu truy vấn SQL đúng cú pháp
         $sql = "
             UPDATE users SET 
                 name = :name,
-                email = :email,
                 address = :address,
                 phone = :phone,
                 image = :image,
@@ -60,7 +56,6 @@ class UserModel2{
     
         $stmt = $this->db->pdo->prepare($sql);
         $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $email);
         $stmt->bindParam(':address', $address);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':image', $image);
@@ -68,5 +63,5 @@ class UserModel2{
         $stmt->bindParam(':id', $_SESSION['users']['id']);
     
         return $stmt->execute();
-    }
+    }   
 }
